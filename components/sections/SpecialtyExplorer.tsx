@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
 import { specialties } from '@/data/specialties';
 
@@ -11,31 +10,41 @@ export function SpecialtyExplorer() {
 
   return (
     <section className='specialties-section' id='especialidades'>
-      <div className='section-intro' data-reveal>
+      <div className='specialties-heading'>
         <p className='section-label'>04 — ESPECIALIDADES</p>
-        <h2>O cuidado<br />por inteiro.</h2>
+        <div>
+          <h2>Escolha por onde<br /><em>começar.</em></h2>
+          <p>Encontre a especialidade que faz sentido para o seu momento. Cada área é parte de uma experiência de cuidado mais completa.</p>
+        </div>
       </div>
-      <div className='specialty-layout'>
-        <div className='specialty-list'>
+      <div className='specialty-showcase'>
+        <div className='specialty-feature' aria-live='polite'>
+          <div className='specialty-photo'>
+            <Image key={current.image} src={current.image} alt={`Ambiente associado a ${current.name}`} fill sizes='(max-width: 800px) 100vw, 36vw' />
+          </div>
+          <div className='specialty-feature-copy'>
+            <span>EM DESTAQUE</span>
+            <h3>{current.name}</h3>
+            <p>{current.shortDescription}</p>
+          </div>
+        </div>
+        <div className='specialty-grid' role='list' aria-label='Especialidades do Instituto Marsalia'>
           {specialties.map((specialty, index) => (
             <button
               key={specialty.slug}
-              className={index === active ? 'active' : ''}
+              type='button'
+              className={index === active ? 'is-active' : ''}
               onMouseEnter={() => setActive(index)}
               onFocus={() => setActive(index)}
               onClick={() => setActive(index)}
               aria-pressed={index === active}
+              role='listitem'
             >
-              <span>0{index + 1}</span><strong>{specialty.name}</strong><b>↗</b>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <strong>{specialty.name}</strong>
+              <b aria-hidden='true'>↗</b>
             </button>
           ))}
-        </div>
-        <div className='specialty-visual' aria-live='polite'>
-          <div className='specialty-photo'>
-            <Image key={current.image} src={current.image} alt={`Ambiente do Instituto Marsalia associado a ${current.name}`} fill sizes='(max-width: 800px) 100vw, 42vw' />
-          </div>
-          <p>{current.shortDescription}</p>
-          <Link href='#especialidades' className='text-link'>Explorar especialidades <span>↗</span></Link>
         </div>
       </div>
     </section>

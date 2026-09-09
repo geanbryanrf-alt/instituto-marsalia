@@ -56,28 +56,12 @@ export function Header() {
         <nav className='desktop-nav' aria-label='Navegação principal'>
           {navigation.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
         </nav>
-        <Link href='#contato' className='header-cta'>Fale com a equipe <span>↗</span></Link>
-        <button
-          ref={triggerRef}
-          className='menu-trigger'
-          type='button'
-          aria-label={open ? 'Fechar menu' : 'Abrir menu'}
-          aria-expanded={open}
-          aria-controls='mobile-menu'
-          onClick={() => setOpen((value) => !value)}
-        >
+        <Link href='#planos' className='header-cta'>Conheça os planos <span>↗</span></Link>
+        <button ref={triggerRef} className='menu-trigger' type='button' aria-label={open ? 'Fechar menu' : 'Abrir menu'} aria-expanded={open} aria-controls='mobile-menu' onClick={() => setOpen((value) => !value)}>
           <span /><span />
         </button>
       </header>
-      <div
-        ref={menuRef}
-        id='mobile-menu'
-        className={`mobile-menu ${open ? 'is-open' : ''}`}
-        role='dialog'
-        aria-modal='true'
-        aria-label='Menu principal'
-        aria-hidden={!open}
-      >
+      <div ref={menuRef} id='mobile-menu' className={`mobile-menu ${open ? 'is-open' : ''}`} role='dialog' aria-modal='true' aria-label='Menu principal' aria-hidden={!open}>
         <div className='mobile-menu-top'>
           <span>INSTITUTO MARSALIA</span>
           <button type='button' onClick={() => setOpen(false)} aria-label='Fechar menu'>Fechar</button>
@@ -85,7 +69,7 @@ export function Header() {
         <nav>
           {navigation.map((item, index) => (
             <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
-              <small>0{index + 1}</small><span>{item.label}</span><b>↗</b>
+              <small>{String(index + 1).padStart(2, '0')}</small><span>{item.label}</span><b>↗</b>
             </Link>
           ))}
         </nav>
