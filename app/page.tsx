@@ -72,36 +72,13 @@ export default function Home() {
             </Link>
           </div>
         </div>
-
-        <div className='hero-scroll-cue' aria-hidden='true'>
-          <span className='scroll-line' />
-          <span className='scroll-text'>DESLIZE PARA EXPLORAR</span>
-        </div>
       </section>
 
-      {/* 2) MANIFESTO & METODOLOGIA DE CUIDADO */}
+      {/* 2) METODOLOGIA DE CUIDADO */}
       <section className='institute-story-section' id='instituto'>
-        <div className='institute-intro-grid manifesto-grid' data-reveal>
-          <p className='section-label'>01 — O INSTITUTO</p>
-          <div className='intro-statement'>
-            <h2>
-              Especialidades que se encontram.<br />
-              <em>Cuidado que faz sentido.</em>
-            </h2>
-            <p className='intro-lead'>
-              No Marsalia, diferentes áreas da saúde atuam em conjunto para tornar o cuidado mais claro, contínuo e integrado.
-            </p>
-          </div>
-        </div>
-
         <div className='care-journey-block'>
           <div className='care-journey-header' data-reveal>
-            <div className='methodology-label'>
-              <span>02</span>
-              <p className='section-label'>COMO CUIDAMOS</p>
-            </div>
             <div className='care-journey-title'>
-              <p className='methodology-kicker'>O PROCESSO</p>
               <h2>Como o cuidado se organiza no Marsalia.</h2>
               <p>
                 Cada etapa do atendimento foi pensada para oferecer acolhimento, integração entre especialidades e continuidade no acompanhamento.
@@ -162,7 +139,6 @@ export default function Home() {
         </div>
 
         <div className='interlude-container' data-reveal>
-          <span className='interlude-badge'>MANIFESTO</span>
           <h2 className='interlude-quote'>
             O movimento cura.<br />
             <em>A escuta acolhe.</em>
@@ -197,7 +173,6 @@ export default function Home() {
           </div>
 
           <div className='pilates-copy-col' data-reveal data-delay='0.15'>
-            <p className='section-label'>03 — O MÉTODO PILATES</p>
             <h2>
               Movimento com<br />
               <em>precisão e presença.</em>
@@ -251,7 +226,6 @@ export default function Home() {
       <section className='space-section' id='espaco'>
         <div className='space-header-editorial' data-reveal>
           <div className='space-title-block'>
-            <p className='section-label'>06 — ARQUITETURA E ESPAÇO</p>
             <h2>
               Um ambiente que<br />
               <em>desacelera o tempo.</em>
@@ -320,11 +294,6 @@ export default function Home() {
       <section className='final-cta' id='contato'>
         <div className='final-cta-glow' aria-hidden='true' />
         <div className='final-cta-content' data-reveal>
-          <div className='final-cta-badge'>
-            <span className='hero-dot' />
-            <p className='section-label'>SEU MOMENTO DE RECONEXÃO</p>
-          </div>
-
           <h2>
             O seu cuidado integral<br />
             <em>começa agora.</em>

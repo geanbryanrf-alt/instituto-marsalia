@@ -12,7 +12,6 @@ export function SpecialtyExplorer() {
   return (
     <section className='specialties-section' id='especialidades'>
       <div className='specialties-heading' data-reveal>
-        <p className='section-label'>04 — ESPECIALIDADES INTEGRADAS</p>
         <div>
           <h2>
             Escolha por onde<br />

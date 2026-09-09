@@ -601,41 +601,13 @@ h1 em, h2 em {
 /* A metodologia é uma transição breve e deliberada para os três passos. */
 .care-journey-block {
   max-width: 1320px;
-  margin: clamp(62px, 7vw, 96px) auto 0;
-  padding: clamp(30px, 4vw, 54px) clamp(20px, 4vw, 52px) 0;
-  background: #e9e1d8;
-  border-top: 1px solid rgba(110, 84, 66, 0.17);
+  margin: 0 auto;
+  padding: 0;
 }
 
 .care-journey-header {
-  display: grid;
-  grid-template-columns: minmax(170px, 0.42fr) minmax(0, 1.58fr);
-  gap: clamp(32px, 7vw, 116px);
-  align-items: start;
-}
-
-.methodology-label {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-top: 7px;
-}
-
-.methodology-label > span {
-  color: var(--bronze);
-  font: 500 1.15rem/1 var(--font-display);
-}
-
-.methodology-label .section-label {
-  color: var(--moss);
-}
-
-.methodology-kicker {
-  margin: 0 0 10px;
-  color: var(--bronze);
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  display: block;
+  max-width: 860px;
 }
 
 .care-journey-title h2 {
@@ -982,12 +954,11 @@ h1 em, h2 em {
 }
 
 .specialties-heading {
-  display: grid;
-  grid-template-columns: minmax(180px, 0.45fr) minmax(0, 1.55fr);
-  gap: clamp(36px, 8vw, 140px);
+  display: block;
+  max-width: 820px;
 }
 
-.specialties-heading p:not(.section-label) {
+.specialties-heading p {
   max-width: 620px;
   margin: 28px 0 0;
   color: var(--moss);

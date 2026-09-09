@@ -11,7 +11,6 @@ export function Plans() {
     <section id='planos' className='plans-section'>
       <div className='plans-heading' data-reveal>
         <div className='plans-title-wrap'>
-          <p className='section-label'>05 — NÍVEIS DE CUIDADO EM PILATES</p>
           <h2>
             Sua jornada.<br />
             <em>Seu ritmo e constância.</em>
