@@ -7,21 +7,21 @@ import { Plans } from '@/components/sections/Plans';
 const careSteps = [
   {
     number: '01',
-    subtitle: 'ESCUTA & DIAGNÓSTICO',
-    title: 'Escuta inicial e acolhimento',
-    text: 'Começamos ouvindo com calma o seu momento, sua rotina e o que você busca para a sua saúde física e mental.',
+    subtitle: 'PRIMEIRO PASSO',
+    title: 'Escuta inicial',
+    text: 'Começamos entendendo o seu momento, sua rotina e o que você busca para a sua saúde.',
   },
   {
     number: '02',
-    subtitle: 'INTEGRAÇÃO CLÍNICA',
-    title: 'Cuidado multidisciplinar conectado',
-    text: 'Quando necessário, diferentes especialidades dialogam entre si para desenhar uma jornada coordenada e fluida.',
+    subtitle: 'VISÃO INTEGRADA',
+    title: 'Cuidado conectado',
+    text: 'Quando necessário, diferentes especialidades atuam de forma complementar na sua jornada.',
   },
   {
     number: '03',
-    subtitle: 'LONGO PRAZO',
-    title: 'Acompanhamento contínuo e humano',
-    text: 'O cuidado evolui com você, respeitando seus limites, seu tempo e seus objetivos de vida ao longo do tempo.',
+    subtitle: 'CONTINUIDADE',
+    title: 'Acompanhamento contínuo',
+    text: 'O cuidado evolui com você, respeitando seu ritmo e seus objetivos ao longo do tempo.',
   },
 ] as const;
 
@@ -79,42 +79,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2) NARRATIVA DE INTEGRAÇÃO & JORNADA CLÍNICA COM WATERMARK */}
+      {/* 2) MANIFESTO & METODOLOGIA DE CUIDADO */}
       <section className='institute-story-section' id='instituto'>
-        <div className='watermark-container' aria-hidden='true'>
-          <span>MARSALIA</span>
-        </div>
-
-        <div className='institute-intro-grid' data-reveal>
-          <div className='section-label-col'>
-            <p className='section-label'>01 — O INSTITUTO</p>
-            <span className='section-subtag'>FILOSOFIA DE CUIDADO</span>
-          </div>
+        <div className='institute-intro-grid manifesto-grid' data-reveal>
+          <p className='section-label'>01 — O INSTITUTO</p>
           <div className='intro-statement'>
             <h2>
               Especialidades que se encontram.<br />
               <em>Cuidado que faz sentido.</em>
             </h2>
             <p className='intro-lead'>
-              No Instituto Marsalia, a saúde não é fragmentada em consultas isoladas.
-              Reunimos a medicina do estilo de vida, o movimento consciente e a escuta clínica
-              em um ecossistema harmônico, onde cada profissional colabora ativamente para o seu equilíbrio.
+              No Marsalia, diferentes áreas da saúde atuam em conjunto para tornar o cuidado mais claro, contínuo e integrado.
             </p>
           </div>
         </div>
 
-        {/* JORNADA & PASSOS DE CUIDADO (01 / 02 / 03) */}
         <div className='care-journey-block'>
           <div className='care-journey-header' data-reveal>
-            <p className='section-label'>02 — METODOLOGIA INTEGRADA</p>
+            <div className='methodology-label'>
+              <span>02</span>
+              <p className='section-label'>COMO CUIDAMOS</p>
+            </div>
             <div className='care-journey-title'>
-              <h2>
-                Uma jornada que conversa<br />
-                <em>com o seu tempo.</em>
-              </h2>
+              <p className='methodology-kicker'>O PROCESSO</p>
+              <h2>Como o cuidado se organiza no Marsalia.</h2>
               <p>
-                Estruturamos cada etapa do seu atendimento para que você sinta acolhimento
-                desde o primeiro contato até a consolidação dos seus hábitos saudáveis.
+                Cada etapa do atendimento foi pensada para oferecer acolhimento, integração entre especialidades e continuidade no acompanhamento.
               </p>
             </div>
           </div>

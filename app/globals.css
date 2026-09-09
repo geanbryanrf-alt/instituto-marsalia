@@ -543,26 +543,13 @@ h1 em, h2 em {
 }
 
 /* =========================================================================
-   2) NARRATIVA DE INTEGRAÇÃO & PASSOS 01 / 02 / 03
+   2) MANIFESTO & METODOLOGIA DE CUIDADO
    ========================================================================= */
 .institute-story-section {
   position: relative;
   background: var(--paper);
-  padding: clamp(96px, 12vw, 175px) clamp(24px, 6.5vw, 120px);
+  padding: clamp(76px, 9vw, 126px) clamp(24px, 6.5vw, 120px) clamp(94px, 11vw, 160px);
   overflow: hidden;
-}
-
-.watermark-container {
-  position: absolute;
-  top: 6%;
-  right: -5%;
-  font: 600 clamp(7rem, 20vw, 24rem)/0.8 var(--font-display);
-  color: var(--brown-primary);
-  opacity: 0.024;
-  letter-spacing: 0.05em;
-  user-select: none;
-  pointer-events: none;
-  white-space: nowrap;
 }
 
 /* Centralização consistente de todas as seções */
@@ -586,134 +573,165 @@ h1 em, h2 em {
 
 .institute-intro-grid {
   display: grid;
-  grid-template-columns: minmax(180px, 0.45fr) minmax(0, 1.55fr);
-  gap: clamp(36px, 8vw, 140px);
+  grid-template-columns: minmax(170px, 0.42fr) minmax(0, 1.58fr);
+  gap: clamp(32px, 7vw, 116px);
   align-items: start;
 }
 
 .intro-statement h2,
-.care-journey-title h2,
 .pilates-copy-col h2,
 .specialties-heading h2,
 .plans-title-wrap h2,
 .space-title-block h2,
 .final-cta h2 {
   margin: 0;
-  font: 400 clamp(3.2rem, 5.8vw, 6.6rem)/0.89 var(--font-display);
+  font: 400 clamp(3.1rem, 5.1vw, 5.9rem)/0.9 var(--font-display);
   letter-spacing: -0.045em;
   color: var(--brown-primary);
 }
 
 .intro-lead {
-  max-width: 720px;
-  margin: 34px 0 0;
+  max-width: 570px;
+  margin: 24px 0 0;
   color: var(--moss);
-  font-size: 1.12rem;
-  line-height: 1.84;
+  font-size: 1rem;
+  line-height: 1.72;
 }
 
-/* 01 / 02 / 03 Journey Blocks */
+/* A metodologia é uma transição breve e deliberada para os três passos. */
 .care-journey-block {
-  margin-top: clamp(84px, 10vw, 150px);
-  padding-top: clamp(60px, 8vw, 100px);
-  border-top: 1px solid var(--line);
+  max-width: 1320px;
+  margin: clamp(62px, 7vw, 96px) auto 0;
+  padding: clamp(30px, 4vw, 54px) clamp(20px, 4vw, 52px) 0;
+  background: #e9e1d8;
+  border-top: 1px solid rgba(110, 84, 66, 0.17);
 }
 
 .care-journey-header {
   display: grid;
-  grid-template-columns: minmax(180px, 0.45fr) minmax(0, 1.55fr);
-  gap: clamp(36px, 8vw, 140px);
+  grid-template-columns: minmax(170px, 0.42fr) minmax(0, 1.58fr);
+  gap: clamp(32px, 7vw, 116px);
+  align-items: start;
 }
 
-.care-journey-title p {
-  max-width: 580px;
-  margin: 28px 0 0;
+.methodology-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 7px;
+}
+
+.methodology-label > span {
+  color: var(--bronze);
+  font: 500 1.15rem/1 var(--font-display);
+}
+
+.methodology-label .section-label {
   color: var(--moss);
-  font-size: 1.02rem;
-  line-height: 1.76;
+}
+
+.methodology-kicker {
+  margin: 0 0 10px;
+  color: var(--bronze);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.care-journey-title h2 {
+  max-width: 710px;
+  margin: 0;
+  color: var(--brown-primary);
+  font: 500 clamp(2.15rem, 3.7vw, 4.25rem)/0.98 var(--font-display);
+  letter-spacing: -0.04em;
+}
+
+.care-journey-title > p:last-child {
+  max-width: 545px;
+  margin: 18px 0 0;
+  color: var(--moss);
+  font-size: 0.96rem;
+  line-height: 1.7;
 }
 
 .care-sequence-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: clamp(60px, 7vw, 96px);
+  gap: 14px;
+  margin-top: clamp(34px, 4vw, 52px);
 }
-
 .care-step-card {
   position: relative;
   display: flex;
+  min-height: 254px;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 310px;
-  padding: 34px 30px;
-  background: #fbf9f5;
-  border: 1px solid var(--line);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 27px 25px 24px;
+  background: rgba(255, 253, 249, 0.76);
+  border: 1px solid rgba(110, 84, 66, 0.14);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .care-step-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(168, 129, 98, 0.45);
-  box-shadow: 0 16px 36px rgba(41, 30, 26, 0.07);
+  transform: translateY(-3px);
+  border-color: rgba(168, 129, 98, 0.5);
+  box-shadow: 0 14px 30px rgba(41, 30, 26, 0.07);
 }
 
 .care-step-top {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  gap: 16px;
 }
 
 .care-step-num {
-  font: 400 clamp(2.4rem, 3.4vw, 3.8rem)/0.9 var(--font-display);
   color: var(--bronze);
+  font: 400 clamp(2.05rem, 3vw, 3.2rem)/0.9 var(--font-display);
 }
 
 .care-step-sub {
-  font-size: 0.64rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
   color: var(--moss);
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-align: right;
 }
 
 .care-step-body h3 {
-  margin: 36px 0 14px;
-  font: 500 clamp(1.6rem, 2.2vw, 2.25rem)/1.08 var(--font-display);
-  letter-spacing: -0.025em;
+  margin: 30px 0 11px;
   color: var(--brown-primary);
+  font: 500 clamp(1.5rem, 2vw, 2rem)/1.04 var(--font-display);
+  letter-spacing: -0.025em;
 }
 
 .care-step-body p {
+  max-width: 310px;
   margin: 0;
   color: var(--moss);
-  font-size: 0.94rem;
-  line-height: 1.72;
+  font-size: 0.89rem;
+  line-height: 1.66;
 }
 
 .care-step-accent-line {
   position: absolute;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
   height: 2px;
   background: linear-gradient(90deg, var(--bronze), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.care-step-card:hover .care-step-accent-line {
-  opacity: 1;
-}
+.care-step-card:hover .care-step-accent-line { opacity: 1; }
 
 /* Imagem de Integração Arquitetônica */
 .integration-hero-frame {
   position: relative;
-  margin: clamp(64px, 8vw, 110px) 0 0;
+  margin: clamp(46px, 5vw, 70px) 0 0;
   overflow: hidden;
 }
-
 .integration-image-wrap {
   position: relative;
   height: clamp(340px, 42vw, 620px);
@@ -1937,4 +1955,46 @@ h1 em, h2 em {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+/* Ajustes de ritmo da metodologia em telas menores */
+@media (max-width: 680px) {
+  .institute-story-section {
+    padding-top: 70px;
+    padding-bottom: 82px;
+  }
+
+  .intro-lead { margin-top: 20px; }
+
+  .care-journey-block {
+    margin-top: 48px;
+    padding: 26px 16px 0;
+  }
+
+  .care-journey-header { gap: 18px; }
+
+  .methodology-label { padding-top: 0; }
+
+  .care-journey-title h2 {
+    font-size: clamp(2.15rem, 9vw, 2.85rem);
+    line-height: 1.02;
+  }
+
+  .care-journey-title > p:last-child {
+    margin-top: 15px;
+    font-size: 0.92rem;
+  }
+
+  .care-sequence-grid {
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .care-step-card {
+    min-height: 0;
+    padding: 24px 20px;
+  }
+
+  .care-step-body h3 { margin-top: 25px; }
+
+  .integration-hero-frame { margin-top: 38px; }
 }
