@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { SiteShell } from '@/components/layout/SiteShell';
+import { Hero } from '@/components/sections/Hero';
 import { SpecialtyExplorer } from '@/components/sections/SpecialtyExplorer';
 import { Plans } from '@/components/sections/Plans';
 
@@ -8,71 +9,28 @@ const careSteps = [
   {
     number: '01',
     subtitle: 'PRIMEIRO PASSO',
-    title: 'Escuta inicial',
-    text: 'Começamos entendendo o seu momento, sua rotina e o que você busca para a sua saúde.',
+    title: 'Escuta inicial e acolhimento',
+    text: 'Começamos ouvindo com calma o seu momento, sua rotina e o que você busca para a sua saúde física e mental.',
   },
   {
     number: '02',
-    subtitle: 'VISÃO INTEGRADA',
-    title: 'Cuidado conectado',
-    text: 'Quando necessário, diferentes especialidades atuam de forma complementar na sua jornada.',
+    subtitle: 'INTEGRAÇÃO CLÍNICA',
+    title: 'Cuidado multidisciplinar conectado',
+    text: 'Quando necessário, diferentes especialidades dialogam entre si para desenhar uma jornada coordenada e fluida.',
   },
   {
     number: '03',
-    subtitle: 'CONTINUIDADE',
-    title: 'Acompanhamento contínuo',
-    text: 'O cuidado evolui com você, respeitando seu ritmo e seus objetivos ao longo do tempo.',
+    subtitle: 'LONGO PRAZO',
+    title: 'Acompanhamento contínuo e humano',
+    text: 'O cuidado evolui com você, respeitando seus limites, seu tempo e seus objetivos de vida ao longo do tempo.',
   },
 ] as const;
 
 export default function Home() {
   return (
     <SiteShell>
-      {/* 1) HERO SECTION CINEMATOGRÁFICO CENTRALIZADO */}
-      <section className='home-hero' aria-label='Abertura — Instituto Marsalia'>
-        <div className='hero-backdrop'>
-          <Image
-            src='/images/recepcao-2.jpg'
-            alt='Ambiente acolhedor e arquitetônico da recepção do Instituto Marsalia'
-            fill
-            priority
-            sizes='100vw'
-            className='hero-backdrop-image'
-            data-scale-in
-          />
-          <div className='hero-gradient-overlay' />
-          <div className='hero-warm-tint' />
-        </div>
-
-        <div className='hero-content-wrapper'>
-          <div className='hero-badge' data-reveal data-delay='0.1'>
-            <span className='hero-dot' />
-            <p className='eyebrow'>INSTITUTO MARSALIA • SAÚDE INTEGRADA & PILATES</p>
-          </div>
-
-          <div className='hero-main-title' data-reveal data-delay='0.25'>
-            <h1>
-              Um lugar para<br />
-              <em>cuidar de você</em><br />
-              por inteiro.
-            </h1>
-          </div>
-
-          <p className='hero-lead-text' data-reveal data-delay='0.35'>
-            Saúde, movimento e bem-estar reunidos em uma experiência próxima,
-            atenta e integrada ao seu ritmo de vida.
-          </p>
-
-          <div className='hero-actions-cluster' data-reveal data-delay='0.45'>
-            <Link href='#especialidades' className='button button-champagne'>
-              Conheça as especialidades <span>↗</span>
-            </Link>
-            <Link href='#planos' className='text-link text-link-light'>
-              Ver planos de Pilates <span>↗</span>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* 1) HERO SECTION CINEMATOGRÁFICO CONFORME IMAGEM DE REFERÊNCIA */}
+      <Hero />
 
       {/* 2) METODOLOGIA DE CUIDADO */}
       <section className='institute-story-section' id='instituto'>
