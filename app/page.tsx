@@ -28,7 +28,7 @@ const careSteps = [
 export default function Home() {
   return (
     <SiteShell>
-      {/* 1) HERO SECTION CINEMATOGRÁFICO */}
+      {/* 1) HERO SECTION CINEMATOGRÁFICO CENTRALIZADO */}
       <section className='home-hero' aria-label='Abertura — Instituto Marsalia'>
         <div className='hero-backdrop'>
           <Image
@@ -58,34 +58,24 @@ export default function Home() {
             </h1>
           </div>
 
-          <div className='hero-bottom-bar' data-reveal data-delay='0.4'>
-            <p className='hero-lead-text'>
-              Saúde, movimento e bem-estar reunidos em uma experiência próxima,
-              atenta e integrada ao seu ritmo de vida.
-            </p>
+          <p className='hero-lead-text' data-reveal data-delay='0.35'>
+            Saúde, movimento e bem-estar reunidos em uma experiência próxima,
+            atenta e integrada ao seu ritmo de vida.
+          </p>
 
-            <div className='hero-actions-cluster'>
-              <Link href='#especialidades' className='button button-champagne'>
-                Conheça as especialidades <span>↗</span>
-              </Link>
-              <Link href='#planos' className='text-link text-link-light'>
-                Ver planos de Pilates <span>↗</span>
-              </Link>
-            </div>
-
-            <div className='hero-scroll-cue' aria-hidden='true'>
-              <span className='scroll-line' />
-              <span className='scroll-text'>DESLIZE PARA EXPLORAR</span>
-            </div>
+          <div className='hero-actions-cluster' data-reveal data-delay='0.45'>
+            <Link href='#especialidades' className='button button-champagne'>
+              Conheça as especialidades <span>↗</span>
+            </Link>
+            <Link href='#planos' className='text-link text-link-light'>
+              Ver planos de Pilates <span>↗</span>
+            </Link>
           </div>
         </div>
 
-        <div className='hero-floating-card' data-reveal data-delay='0.55'>
-          <span className='floating-number'>01</span>
-          <div className='floating-text'>
-            <small>ESPAÇO MARSALIA</small>
-            <p>Projetado para acolher, desacelerar e transformar.</p>
-          </div>
+        <div className='hero-scroll-cue' aria-hidden='true'>
+          <span className='scroll-line' />
+          <span className='scroll-text'>DESLIZE PARA EXPLORAR</span>
         </div>
       </section>
 

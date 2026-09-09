@@ -391,16 +391,18 @@ section[id] {
 }
 
 /* =========================================================================
-   1) HERO SECTION CINEMATOGRÁFICO
+   1) HERO SECTION CINEMATOGRÁFICO CENTRALIZADO
    ========================================================================= */
 .home-hero {
   position: relative;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: clamp(140px, 18vh, 220px) clamp(24px, 6.5vw, 120px) clamp(44px, 7vh, 80px);
+  align-items: center;
+  justify-content: center;
+  padding: clamp(120px, 15vh, 180px) clamp(24px, 6.5vw, 120px) clamp(60px, 9vh, 96px);
   color: #fff;
+  text-align: center;
   overflow: hidden;
   background: var(--brown-obsidian);
 }
@@ -424,8 +426,8 @@ section[id] {
   background: linear-gradient(
     180deg,
     rgba(23, 18, 16, 0.65) 0%,
-    rgba(23, 18, 16, 0.38) 42%,
-    rgba(23, 18, 16, 0.82) 80%,
+    rgba(23, 18, 16, 0.42) 42%,
+    rgba(23, 18, 16, 0.85) 80%,
     rgba(23, 18, 16, 0.96) 100%
   );
   pointer-events: none;
@@ -435,9 +437,9 @@ section[id] {
   position: absolute;
   inset: 0;
   background: radial-gradient(
-    circle at 75% 30%,
-    rgba(220, 193, 163, 0.12) 0%,
-    transparent 65%
+    circle at center,
+    rgba(220, 193, 163, 0.14) 0%,
+    transparent 70%
   );
   pointer-events: none;
 }
@@ -445,17 +447,22 @@ section[id] {
 .hero-content-wrapper {
   position: relative;
   z-index: 10;
-  max-width: 1440px;
+  max-width: 960px;
   width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: 7px 16px;
+  padding: 8px 20px;
   background: rgba(33, 24, 21, 0.72);
-  border: 1px solid rgba(220, 193, 163, 0.22);
+  border: 1px solid rgba(220, 193, 163, 0.24);
   backdrop-filter: blur(10px);
   margin-bottom: 28px;
 }
@@ -481,11 +488,12 @@ section[id] {
 }
 
 .hero-main-title h1 {
-  margin: 0;
-  font: 400 clamp(3.8rem, 6.8vw, 8.2rem)/0.87 var(--font-display);
+  margin: 0 auto;
+  font: 400 clamp(3.6rem, 6.5vw, 7.8rem)/0.88 var(--font-display);
   letter-spacing: -0.045em;
   color: #fff;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 4px 34px rgba(0, 0, 0, 0.45);
+  text-align: center;
 }
 
 h1 em, h2 em {
@@ -494,31 +502,30 @@ h1 em, h2 em {
   color: var(--champagne);
 }
 
-.hero-bottom-bar {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) auto auto;
-  align-items: end;
-  gap: 40px;
-  margin-top: clamp(36px, 5vh, 64px);
-  padding-top: 28px;
-  border-top: 1px solid rgba(220, 193, 163, 0.18);
-}
-
 .hero-lead-text {
-  max-width: 480px;
-  margin: 0;
-  color: rgba(255, 250, 245, 0.84);
-  font-size: 1.05rem;
-  line-height: 1.75;
+  max-width: 580px;
+  margin: 28px auto 0;
+  color: rgba(255, 250, 245, 0.88);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: center;
 }
 
 .hero-actions-cluster {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 24px;
+  margin-top: 38px;
+  flex-wrap: wrap;
 }
 
 .hero-scroll-cue {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -533,42 +540,6 @@ h1 em, h2 em {
   height: 1px;
   background: currentColor;
   opacity: 0.6;
-}
-
-.hero-floating-card {
-  position: absolute;
-  z-index: 12;
-  right: clamp(24px, 6.5vw, 120px);
-  top: clamp(140px, 20vh, 240px);
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 16px 22px;
-  background: rgba(23, 18, 16, 0.78);
-  border: 1px solid rgba(220, 193, 163, 0.22);
-  backdrop-filter: blur(12px);
-  max-width: 280px;
-}
-
-.floating-number {
-  font: 400 2.2rem/1 var(--font-display);
-  color: var(--champagne);
-}
-
-.floating-text small {
-  display: block;
-  color: var(--bronze);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-.floating-text p {
-  margin: 4px 0 0;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 0.82rem;
-  line-height: 1.45;
 }
 
 /* =========================================================================
@@ -592,6 +563,25 @@ h1 em, h2 em {
   user-select: none;
   pointer-events: none;
   white-space: nowrap;
+}
+
+/* Centralização consistente de todas as seções */
+.institute-intro-grid,
+.care-journey-header,
+.care-sequence-grid,
+.integration-hero-frame,
+.pilates-split-container,
+.specialties-heading,
+.specialty-curation,
+.plans-heading,
+.plan-tiers,
+.plans-editorial-footnote,
+.space-header-editorial,
+.space-editorial-gallery {
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .institute-intro-grid {
