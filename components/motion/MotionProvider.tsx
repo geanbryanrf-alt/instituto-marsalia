@@ -11,31 +11,100 @@ export function MotionProvider() {
     if (reduced) return;
 
     gsap.registerPlugin(ScrollTrigger);
-    const lenis = new Lenis({ lerp: 0.075, smoothWheel: true });
-    let frame = 0;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      frame = requestAnimationFrame(raf);
+
+    const lenis = new Lenis({
+      lerp: 0.085,
+      smoothWheel: true,
+      wheelMultiplier: 0.95,
+    });
+
+    lenis.on('scroll', ScrollTrigger.update);
+
+    const updateTicker = (time: number) => {
+      lenis.raf(time * 1000);
     };
-    frame = requestAnimationFrame(raf);
+
+    gsap.ticker.add(updateTicker);
+    gsap.ticker.lagSmoothing(0);
 
     const context = gsap.context(() => {
+      // Reveal individual elements with elegance
       gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((element) => {
-        gsap.fromTo(element, { y: 30, opacity: 0 }, {
-          y: 0, opacity: 1, duration: .9, ease: 'power3.out',
-          scrollTrigger: { trigger: element, start: 'top 86%', once: true },
-        });
+        const delay = parseFloat(element.dataset.delay || '0');
+        gsap.fromTo(
+          element,
+          { y: 36, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.05,
+            delay,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: element,
+              start: 'top 88%',
+              once: true,
+            },
+          }
+        );
       });
+
+      // Staggered reveal for lists and step grids
+      gsap.utils.toArray<HTMLElement>('[data-stagger]').forEach((container) => {
+        const items = container.children;
+        gsap.fromTo(
+          items,
+          { y: 32, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.9,
+            stagger: 0.12,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: container,
+              start: 'top 85%',
+              once: true,
+            },
+          }
+        );
+      });
+
+      // Subtle atmospheric parallax
       gsap.utils.toArray<HTMLElement>('[data-parallax]').forEach((element) => {
-        gsap.fromTo(element, { yPercent: -3 }, {
-          yPercent: 3, ease: 'none',
-          scrollTrigger: { trigger: element, start: 'top bottom', end: 'bottom top', scrub: .7 },
-        });
+        const speed = parseFloat(element.dataset.speed || '5');
+        gsap.fromTo(
+          element,
+          { yPercent: -speed },
+          {
+            yPercent: speed,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: element.parentElement || element,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 0.8,
+            },
+          }
+        );
+      });
+
+      // Subtle scale-down for opening / hero images
+      gsap.utils.toArray<HTMLElement>('[data-scale-in]').forEach((element) => {
+        gsap.fromTo(
+          element,
+          { scale: 1.08 },
+          {
+            scale: 1,
+            duration: 1.8,
+            ease: 'power2.out',
+          }
+        );
       });
     });
 
     return () => {
-      cancelAnimationFrame(frame);
+      gsap.ticker.remove(updateTicker);
       context.revert();
       lenis.destroy();
     };
