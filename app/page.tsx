@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { SiteShell } from '@/components/layout/SiteShell';
 import { Hero } from '@/components/sections/Hero';
+import { FounderStory } from '@/components/sections/FounderStory';
 import { SpecialtyExplorer } from '@/components/sections/SpecialtyExplorer';
 import { Plans } from '@/components/sections/Plans';
 
@@ -29,7 +30,10 @@ export default function Home() {
       {/* 1) HERO SECTION CINEMATOGRÁFICO CONFORME IMAGEM DE REFERÊNCIA */}
       <Hero />
 
-      {/* 2) METODOLOGIA DE CUIDADO — REDESIGN EDITORIAL CENTRADO */}
+      {/* 2) PROPÓSITO E FUNDADORES */}
+      <FounderStory />
+
+      {/* 3) METODOLOGIA DE CUIDADO — REDESIGN EDITORIAL CENTRADO */}
       <section className='institute-story-section' id='instituto'>
         <div className='care-editorial-container'>
 
