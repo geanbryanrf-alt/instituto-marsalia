@@ -20,6 +20,12 @@ export const metadata: Metadata = {
     template: '%s | Instituto Marsalia',
   },
   description: 'Saúde, movimento e cuidado em um só lugar. Uma experiência integrada em Pilates e diferentes áreas da saúde.',
+  icons: {
+    icon: [{
+      url: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTUiIGZpbGw9InJnYigyOCAyMCAxNykiLz48cGF0aCBkPSJNMTUgNDZWMThoNmwxMSAxNSAxMS0xNWg2djI4aC01VjI3LjVMMzUgNDBoLTZsLTktMTIuNVY0NnoiIGZpbGw9InJnYigyMjAgMTkzIDE2MykiLz48cGF0aCBkPSJNMTYgMTJoMzIiIHN0cm9rZT0icmdiKDE1OSAxMjAgODkpIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+',
+      type: 'image/svg+xml',
+    }],
+  },
   openGraph: {
     title: 'Instituto Marsalia | Saúde Integrada e Pilates',
     description: 'Saúde, movimento e cuidado em um só lugar.',
