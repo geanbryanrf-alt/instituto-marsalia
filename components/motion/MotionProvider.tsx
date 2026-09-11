@@ -25,9 +25,30 @@ export function MotionProvider() {
     };
 
     gsap.ticker.add(updateTicker);
-    gsap.ticker.lagSmoothing(0);
+    gsap.ticker.lagSmoothing(500, 33);
 
     const context = gsap.context(() => {
+      // Mark each section as it enters the viewport, for a subtle living rhythm
+      gsap.utils.toArray<HTMLElement>('main > section').forEach((section) => {
+        ScrollTrigger.create({
+          trigger: section,
+          start: 'top 72%',
+          end: 'bottom 28%',
+          toggleClass: { targets: section, className: 'is-in-view' },
+        });
+      });
+
+      // A restrained progress line keeps the visitor oriented through the story
+      gsap.to('.scroll-progress', {
+        scaleX: 1,
+        ease: 'none',
+        scrollTrigger: {
+          start: 0,
+          end: 'max',
+          scrub: 0.2,
+        },
+      });
+
       // Reveal individual elements with elegance
       gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((element) => {
         const delay = parseFloat(element.dataset.delay || '0');
@@ -89,6 +110,27 @@ export function MotionProvider() {
         );
       });
 
+      // Images respond slowly to the scroll, creating depth without distraction
+      gsap.utils.toArray<HTMLImageElement>(
+        '.pilates-image-frame img, .space-editorial-gallery img, .spec-card-image'
+      ).forEach((image) => {
+        gsap.fromTo(
+          image,
+          { scale: 1.14, filter: 'saturate(0.84) brightness(0.9)' },
+          {
+            scale: 1,
+            filter: 'saturate(1) brightness(1)',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: image.parentElement || image,
+              start: 'top 88%',
+              end: 'bottom 28%',
+              scrub: 0.9,
+            },
+          }
+        );
+      });
+
       // Subtle scale-down for opening / hero images
       gsap.utils.toArray<HTMLElement>('[data-scale-in]').forEach((element) => {
         gsap.fromTo(
@@ -110,5 +152,5 @@ export function MotionProvider() {
     };
   }, []);
 
-  return null;
+  return <div className='scroll-progress' aria-hidden='true' />;
 }

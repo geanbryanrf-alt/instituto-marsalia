@@ -9,103 +9,125 @@ export function Plans() {
 
   return (
     <section id='planos' className='plans-section'>
-      <div className='plans-heading' data-reveal>
-        <div className='plans-title-wrap'>
-          <h2>
-            Sua jornada.<br />
-            <em>Seu ritmo e constância.</em>
-          </h2>
-        </div>
-        <div className='plans-heading-copy'>
-          <p>
-            O Pilates no Instituto Marsalia é estruturado em turmas reduzidas, com plano pedagógico
-            orientado para alinhamento biomecânico, fortalecimento e bem-estar integral.
-          </p>
 
-          <div className='frequency-selector' role='group' aria-label='Frequência de aulas semanais'>
-            <span className='frequency-label'>Frequência semanal:</span>
-            <div className='frequency-pills'>
-              <button
-                type='button'
-                className={`frequency-pill ${frequency === 2 ? 'is-active' : ''}`}
-                onClick={() => setFrequency(2)}
-                aria-pressed={frequency === 2}
-              >
-                <strong>2×</strong> por semana
-              </button>
-              <button
-                type='button'
-                className={`frequency-pill ${frequency === 3 ? 'is-active' : ''}`}
-                onClick={() => setFrequency(3)}
-                aria-pressed={frequency === 3}
-              >
-                <strong>3×</strong> por semana
-              </button>
-            </div>
+
+      {/* ── CENTERED INTRO ── */}
+      <div className='plans-intro' data-reveal>
+        <span className='plans-intro-label'>05 — PLANOS DE PILATES</span>
+
+        <h2 className='plans-intro-heading'>
+          <span className='plans-heading-line1'>Um cuidado que</span>
+          <em className='plans-heading-italic'>se adapta à sua rotina.</em>
+        </h2>
+
+        <p className='plans-intro-body'>
+          Escolha a frequência que melhor acompanha a sua rotina.
+          Os planos foram pensados para valorizar a constância do cuidado.
+        </p>
+
+        {/* Frequency Selector */}
+        <div className='plans-freq-wrap' role='group' aria-label='Frequência de aulas semanais'>
+          <span className='plans-freq-label'>FREQUÊNCIA SEMANAL</span>
+          <div className='plans-freq-pills'>
+            <button
+              type='button'
+              className={`plans-freq-btn ${frequency === 2 ? 'is-active' : ''}`}
+              onClick={() => setFrequency(2)}
+              aria-pressed={frequency === 2}
+            >
+              FREQUÊNCIA <strong>2×</strong>
+            </button>
+            <button
+              type='button'
+              className={`plans-freq-btn ${frequency === 3 ? 'is-active' : ''}`}
+              onClick={() => setFrequency(3)}
+              aria-pressed={frequency === 3}
+            >
+              FREQUÊNCIA <strong>3×</strong>
+            </button>
           </div>
         </div>
       </div>
 
-      <div className='plan-tiers' data-stagger>
+      {/* ── PLAN CARDS ── */}
+      <div className='plans-grid' data-stagger>
         {pilatesPlans.map((plan, index) => {
           const price = frequency === 2 ? plan.price2x : plan.price3x;
           const isSignature = plan.slug === 'signature';
+          const lvl = `PLANO 0${index + 1}`;
 
           return (
             <article
               key={plan.slug}
-              className={`plan-tier ${isSignature ? 'is-signature' : ''}`}
+              className={`plan-card ${isSignature ? 'plan-card--signature' : ''}`}
             >
-              <div className='plan-tier-header'>
-                <div className='plan-tier-meta'>
-                  <span className='plan-tier-index'>NÍVEL 0{index + 1}</span>
-                  {isSignature && <span className='plan-tier-flag'>EXPERIÊNCIA INTEGRAL</span>}
+              {/* Header */}
+              <div className='plan-card-header'>
+                <div className='plan-card-meta'>
+                  <span className='plan-card-index'>{lvl}</span>
+                  {isSignature && (
+                    <span className='plan-card-badge'>EXPERIÊNCIA INTEGRAL</span>
+                  )}
                 </div>
-                <h3 className='plan-tier-name'>{plan.name}</h3>
-                <p className='plan-tier-tagline'>{plan.tagline}</p>
-                <p className='plan-tier-description'>{plan.description}</p>
+                <h3 className='plan-card-name'>{plan.name}</h3>
+                <p className='plan-card-tagline'>{plan.tagline}</p>
+                <p className='plan-card-desc'>{plan.description}</p>
               </div>
 
-              <div className='plan-tier-investment'>
-                <span className='investment-label'>Investimento mensal</span>
-                <div className='investment-value'>
-                  <strong key={`${plan.slug}-${frequency}`}>{formatBRL(price)}</strong>
-                  <span>/ mês</span>
+              {/* Investment */}
+              <div className='plan-card-investment'>
+                <span className='plan-invest-label'>VALOR ({frequency}x de)</span>
+                <div className='plan-invest-row'>
+                  <strong
+                    className='plan-invest-price'
+                    key={`${plan.slug}-${frequency}`}
+                  >
+                    {formatBRL(price)}
+                  </strong>
+                  <span className='plan-invest-period'>/mês</span>
                 </div>
-                <p className='investment-frequency-note'>
-                  {frequency} sessões por semana com acompanhamento próximo
+                <p className='plan-invest-note'>
+                  {frequency === 2
+                    ? 'Cuidado de qualidade, com condições especiais no plano semestral'
+                    : 'Condições especiais no plano semestral e anual.'}
                 </p>
               </div>
 
-              <div className='plan-tier-specs'>
-                <div className='spec-item'>
-                  <span>PERMANÊNCIA</span>
-                  <strong>{plan.duration}</strong>
+              {/* Specs strip */}
+              <div className='plan-card-specs'>
+                <div className='plan-spec-item'>
+                  <span className='plan-spec-label'>FREQUÊNCIA</span>
+                  <strong className='plan-spec-value'>{frequency}x por semana</strong>
                 </div>
-                <div className='spec-item'>
-                  <span>TAXA DE MATRÍCULA</span>
-                  <strong>{plan.enrollment}</strong>
+                <div className='plan-spec-item'>
+                  <span className='plan-spec-label'>TAXA DE MATRÍCULA</span>
+                  <strong className='plan-spec-value'>{plan.enrollment}</strong>
                 </div>
               </div>
 
-              <div className='plan-tier-features'>
-                <span className='features-title'>O que está contemplado:</span>
+              {/* Features */}
+              <div className='plan-card-features'>
+                <span className='plan-features-title'>O QUE ESTÁ INCLUÍDO</span>
                 <ul>
                   {plan.benefits.map((benefit) => (
                     <li key={benefit}>
-                      <span className='feature-bullet' aria-hidden='true'>✦</span>
+                      <span className='plan-feature-check' aria-hidden='true'>✓</span>
                       <span>{benefit}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className='plan-tier-action'>
+              {/* CTA */}
+              <div className='plan-card-action'>
                 <Link
                   href='#contato'
-                  className={`button ${isSignature ? 'button-champagne' : 'button-outline-dark'}`}
+                  className={`plan-cta ${isSignature ? 'plan-cta--signature' : 'plan-cta--default'}`}
                 >
-                  Consultar disponibilidade <span>↗</span>
+                  {isSignature
+                    ? `Conheça o Plano Signature`
+                    : `Conheça o Plano ${plan.name}`}
+                  <span aria-hidden='true'> ↗</span>
                 </Link>
               </div>
             </article>
@@ -113,12 +135,14 @@ export function Plans() {
         })}
       </div>
 
-      <div className='plans-editorial-footnote' data-reveal>
+      {/* ── FOOTNOTE ── */}
+      <div className='plans-footnote' data-reveal>
         <p>
-          * Todas as novas admissões realizam avaliação inicial para direcionamento postural e técnico
-          antes do início nas turmas regulares.
+          * Todas as novas admissões realizam avaliação inicial para direcionamento
+          postural e técnico antes do início nas turmas regulares.
         </p>
       </div>
+
     </section>
   );
 }

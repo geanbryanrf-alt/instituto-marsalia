@@ -8,21 +8,18 @@ import { Plans } from '@/components/sections/Plans';
 const careSteps = [
   {
     number: '01',
-    subtitle: 'PRIMEIRO PASSO',
-    title: 'Escuta inicial e acolhimento',
-    text: 'Começamos ouvindo com calma o seu momento, sua rotina e o que você busca para a sua saúde física e mental.',
+    title: 'Escuta inicial',
+    text: 'Começamos entendendo o seu momento, sua rotina e o que você busca para a sua saúde.',
   },
   {
     number: '02',
-    subtitle: 'INTEGRAÇÃO CLÍNICA',
-    title: 'Cuidado multidisciplinar conectado',
-    text: 'Quando necessário, diferentes especialidades dialogam entre si para desenhar uma jornada coordenada e fluida.',
+    title: 'Cuidado conectado',
+    text: 'Quando necessário, diferentes especialidades atuam de forma complementar em uma mesma jornada.',
   },
   {
     number: '03',
-    subtitle: 'LONGO PRAZO',
-    title: 'Acompanhamento contínuo e humano',
-    text: 'O cuidado evolui com você, respeitando seus limites, seu tempo e seus objetivos de vida ao longo do tempo.',
+    title: 'Acompanhamento contínuo',
+    text: 'O cuidado evolui com você, respeitando seu ritmo e seus objetivos ao longo do tempo.',
   },
 ] as const;
 
@@ -32,80 +29,42 @@ export default function Home() {
       {/* 1) HERO SECTION CINEMATOGRÁFICO CONFORME IMAGEM DE REFERÊNCIA */}
       <Hero />
 
-      {/* 2) METODOLOGIA DE CUIDADO */}
+      {/* 2) METODOLOGIA DE CUIDADO — REDESIGN EDITORIAL CENTRADO */}
       <section className='institute-story-section' id='instituto'>
-        <div className='care-journey-block'>
-          <div className='care-journey-header' data-reveal>
-            <div className='care-journey-title'>
-              <h2>Como o cuidado se organiza no Marsalia.</h2>
-              <p>
-                Cada etapa do atendimento foi pensada para oferecer acolhimento, integração entre especialidades e continuidade no acompanhamento.
-              </p>
-            </div>
+        <div className='care-editorial-container'>
+
+          {/* — HEADLINE E INTRO CENTRADOS — */}
+          <div className='care-editorial-header' data-reveal>
+            <h2 className='care-editorial-heading'>
+              <span className='care-heading-line'>Como cuidamos</span>
+              <em className='care-heading-accent'>no Marsalia.</em>
+            </h2>
+            <p className='care-editorial-lead'>
+              Cada etapa do atendimento foi pensada para oferecer acolhimento,
+              integração entre especialidades e continuidade no acompanhamento.
+            </p>
           </div>
 
-          <div className='care-sequence-grid' data-stagger>
+          {/* — TRÊS CARDS DE CUIDADO — */}
+          <div className='care-cards-grid' data-stagger>
             {careSteps.map((step) => (
-              <article key={step.number} className='care-step-card'>
-                <div className='care-step-top'>
-                  <span className='care-step-num'>{step.number}</span>
-                  <span className='care-step-sub'>{step.subtitle}</span>
+              <article
+                key={step.number}
+                className='care-card'
+              >
+                <span className='care-card-number'>{step.number}</span>
+                <div className='care-card-content'>
+                  <h3 className='care-card-title'>{step.title}</h3>
+                  <p className='care-card-desc'>{step.text}</p>
                 </div>
-                <div className='care-step-body'>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
+                <div className='care-card-footer'>
+                  <span className='care-card-arrow' aria-hidden='true'>→</span>
                 </div>
-                <div className='care-step-accent-line' />
               </article>
             ))}
           </div>
 
-          <figure className='integration-hero-frame' data-reveal>
-            <div className='integration-image-wrap' data-parallax data-speed='4'>
-              <Image
-                src='/images/recepcao-3.jpg'
-                alt='Arquitetura contemporânea e acolhedora da recepção do Instituto Marsalia'
-                fill
-                sizes='(max-width: 980px) 100vw, 92vw'
-                className='integration-photo'
-              />
-            </div>
-            <div className='integration-caption-bar'>
-              <div className='caption-left'>
-                <span className='caption-pill'>ARQUITETURA & BEM-ESTAR</span>
-                <figcaption>Uma atmosfera concebida para diminuir o ritmo do dia.</figcaption>
-              </div>
-              <span className='caption-index'>MARSALIA • ESPAÇO</span>
-            </div>
-          </figure>
-        </div>
-      </section>
 
-      {/* 4) INTERLÚDIO CINEMATOGRÁFICO: O MOVIMENTO CURA */}
-      <section className='cinematic-interlude' aria-label='Interlúdio — Filosofia Marsalia'>
-        <div className='interlude-bg'>
-          <Image
-            src='/images/recepcao-1.jpg'
-            alt='Detalhe de luz e serenidade no Instituto Marsalia'
-            fill
-            sizes='100vw'
-            className='interlude-image'
-            data-parallax
-            data-speed='6'
-          />
-          <div className='interlude-overlay' />
-        </div>
-
-        <div className='interlude-container' data-reveal>
-          <h2 className='interlude-quote'>
-            O movimento cura.<br />
-            <em>A escuta acolhe.</em>
-          </h2>
-          <p className='interlude-subquote'>
-            Acreditamos que o corpo humano encontra sua potência quando ganha presença,
-            alinhamento e tempo para respirar.
-          </p>
-          <div className='interlude-divider' />
         </div>
       </section>
 
@@ -120,6 +79,8 @@ export default function Home() {
                 fill
                 sizes='(max-width: 980px) 100vw, 50vw'
                 className='pilates-img'
+                quality={85}
+                loading='lazy'
                 data-parallax
                 data-speed='3'
               />
@@ -131,10 +92,12 @@ export default function Home() {
           </div>
 
           <div className='pilates-copy-col' data-reveal data-delay='0.15'>
+            <p className='pilates-eyebrow'>O MÉTODO PILATES</p>
             <h2>
-              Movimento com<br />
-              <em>precisão e presença.</em>
+              Pilates<br />
+              <em>no Marsalia.</em>
             </h2>
+            <p className='pilates-tagline'>Movimento com precisão e presença.</p>
             <p className='pilates-description'>
               No Instituto Marsalia, o Pilates transcende o exercício mecânico. Conduzido por fisioterapeutas
               e instrutores dedicados, cada sessão respeita sua biomecânica e potencializa sua postura,
@@ -184,6 +147,7 @@ export default function Home() {
       <section className='space-section' id='espaco'>
         <div className='space-header-editorial' data-reveal>
           <div className='space-title-block'>
+            <p className='space-eyebrow'>O ESPAÇO</p>
             <h2>
               Um ambiente que<br />
               <em>desacelera o tempo.</em>
@@ -206,6 +170,8 @@ export default function Home() {
                 alt='Consultório de alta precisão e conforto no Instituto Marsalia'
                 fill
                 sizes='(max-width: 980px) 100vw, 55vw'
+                quality={85}
+                loading='lazy'
               />
             </div>
             <figcaption>
@@ -222,6 +188,8 @@ export default function Home() {
                   alt='Ambiente de escuta acolhedora no Instituto Marsalia'
                   fill
                   sizes='(max-width: 980px) 100vw, 38vw'
+                  quality={85}
+                  loading='lazy'
                 />
               </div>
               <figcaption>
@@ -237,6 +205,8 @@ export default function Home() {
                   alt='Detalhes do espaço Marsalia'
                   fill
                   sizes='(max-width: 980px) 100vw, 38vw'
+                  quality={85}
+                  loading='lazy'
                 />
               </div>
               <figcaption>
@@ -252,8 +222,9 @@ export default function Home() {
       <section className='final-cta' id='contato'>
         <div className='final-cta-glow' aria-hidden='true' />
         <div className='final-cta-content' data-reveal>
+          <p className='final-cta-eyebrow'>AGENDAMENTO</p>
           <h2>
-            O seu cuidado integral<br />
+            <span className='final-cta-heading-line'>O seu cuidado integral</span>
             <em>começa agora.</em>
           </h2>
 
@@ -267,7 +238,7 @@ export default function Home() {
               Ver planos de Pilates <span>↗</span>
             </Link>
             <a
-              href='https://wa.me/?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Instituto%20Marsalia'
+              href='https://wa.me/5527999981466?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Instituto%20Marsalia'
               target='_blank'
               rel='noopener noreferrer'
               className='button button-outline-light button-large'
@@ -279,6 +250,51 @@ export default function Home() {
           <div className='final-cta-location'>
             <span>INSTITUTO MARSALIA</span>
             <small>Atendimento presencial com agendamento prévio</small>
+          </div>
+        </div>
+      </section>
+
+      <section className='location-section' id='localizacao'>
+        <div className='location-inner'>
+          <div className='location-content' data-reveal>
+          <p className='location-eyebrow'>ONDE ESTAMOS</p>
+          <h2>
+            Venha conhecer<br />
+            <em>o Marsalia.</em>
+          </h2>
+          <address>
+            Rua Ladeira Campo Santo<br />
+            Governador Lindenberg, ES<br />
+            29720-000, Brasil
+          </address>
+          <p className='location-phone'>+55 27 99998-1466</p>
+          <div className='location-actions'>
+            <a
+              className='button button-outline-dark'
+              href='https://www.google.com/maps/search/?api=1&query=Rua%20Ladeira%20Campo%20Santo%2C%20Governador%20Lindenberg%2C%20ES%2C%2029720-000'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Abrir no Maps <span>↗</span>
+            </a>
+            <a
+              className='location-whatsapp'
+              href='https://wa.me/5527999981466?text=Olá!%20Gostaria%20de%20agendar%20um%20atendimento.'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Agendar pelo WhatsApp <span>↗</span>
+            </a>
+          </div>
+        </div>
+
+          <div className='location-map' data-reveal data-delay='0.15'>
+          <iframe
+            title='Localização do Instituto Marsalia'
+            src='https://www.google.com/maps?q=Rua%20Ladeira%20Campo%20Santo%2C%20Governador%20Lindenberg%2C%20ES%2C%2029720-000&z=16&output=embed'
+            loading='lazy'
+            referrerPolicy='no-referrer-when-downgrade'
+          />
           </div>
         </div>
       </section>

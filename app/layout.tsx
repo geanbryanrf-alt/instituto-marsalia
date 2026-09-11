@@ -1,9 +1,17 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import '@fontsource/cormorant-garamond/400.css';
+import '@fontsource/cormorant-garamond/400-italic.css';
 import '@fontsource/cormorant-garamond/500.css';
+import '@fontsource/cormorant-garamond/500-italic.css';
 import '@fontsource-variable/manrope';
 import './globals.css';
 import { MotionProvider } from '@/components/motion/MotionProvider';
+
+export const viewport: Viewport = {
+  themeColor: '#171210',
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://instituto-marsalia.bryan-027.chatgpt.site'),

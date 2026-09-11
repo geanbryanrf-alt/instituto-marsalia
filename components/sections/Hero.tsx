@@ -11,8 +11,7 @@ export function Hero() {
   const imageWrapRef = useRef<HTMLDivElement>(null);
   const eyebrowRef = useRef<HTMLDivElement>(null);
   const line1Ref = useRef<HTMLSpanElement>(null);
-  const line2Ref = useRef<HTMLElement>(null);
-  const line3Ref = useRef<HTMLSpanElement>(null);
+  const line2Ref = useRef<HTMLSpanElement>(null);
   const leadRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
@@ -26,7 +25,7 @@ export function Hero() {
       // 1. Initial states for cinematic intro sequence
       gsap.set(imageWrapRef.current, { scale: 1.06, opacity: 0.85 });
       gsap.set(eyebrowRef.current, { opacity: 0, y: 14 });
-      gsap.set([line1Ref.current, line2Ref.current, line3Ref.current], { yPercent: 115 });
+      gsap.set([line1Ref.current, line2Ref.current], { yPercent: 125 });
       gsap.set(leadRef.current, { opacity: 0, y: 18 });
       gsap.set(ctaRef.current, { opacity: 0, y: 16 });
 
@@ -45,7 +44,7 @@ export function Hero() {
         duration: 0.85,
         ease: 'power3.out',
       }, 0.22)
-      .to([line1Ref.current, line2Ref.current, line3Ref.current], {
+      .to([line1Ref.current, line2Ref.current], {
         yPercent: 0,
         duration: 1.05,
         stagger: 0.1,
@@ -123,10 +122,9 @@ export function Hero() {
             <span ref={line1Ref} className='hero-line hero-line-1'>Um lugar para</span>
           </span>
           <span className='hero-line-mask'>
-            <em ref={line2Ref} className='hero-line hero-line-2'>cuidar de você</em>
-          </span>
-          <span className='hero-line-mask'>
-            <span ref={line3Ref} className='hero-line hero-line-3'>por inteiro.</span>
+            <span ref={line2Ref} className='hero-line hero-line-2'>
+              <em>cuidar de você</em> <span className='hero-line-suffix'>por inteiro.</span>
+            </span>
           </span>
         </h1>
 
