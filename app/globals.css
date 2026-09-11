@@ -1815,6 +1815,10 @@ main > section.is-in-view {
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 .plans-freq-label {
@@ -2880,6 +2884,220 @@ main > section.is-in-view {
     flex-direction: column;
     gap: 14px;
     margin-top: 42px;
+  }
+}
+
+/* =========================================================================
+   AJUSTES DE HIERARQUIA E NAVEGAÇÃO PARA MOBILE
+   ========================================================================= */
+@media (max-width: 760px) {
+  /* A abertura vem antes do retrato; o texto completo continua após ele. */
+  .founder-story-inner {
+    gap: 28px;
+  }
+
+  .founder-copy {
+    display: contents;
+  }
+
+  .founder-intro {
+    order: 1;
+  }
+
+  .founder-portrait-column {
+    order: 2;
+  }
+
+  .founder-details {
+    order: 3;
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 720px) {
+  /* Título do Pilates, fotografia e detalhes na leitura natural do celular. */
+  .pilates-split-container {
+    gap: 26px;
+  }
+
+  .pilates-copy-col {
+    display: contents;
+  }
+
+  .pilates-copy-intro {
+    order: 1;
+  }
+
+  .pilates-media-col {
+    order: 2;
+  }
+
+  .pilates-copy-details {
+    order: 3;
+  }
+
+  .pilates-image-frame {
+    min-height: 0;
+    aspect-ratio: 1.15 / 1;
+  }
+
+  .pilates-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+  }
+
+  .pilates-actions .button {
+    width: min(100%, 340px);
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Planos com prévia lateral e gesto de arrastar, como em especialidades. */
+  .plans-carousel-viewport {
+    overflow: hidden;
+    margin: 0 -20px;
+    padding: 10px 0 18px;
+  }
+
+  .plans-grid {
+    display: flex;
+    max-width: none;
+    margin: 0;
+    gap: 0;
+    align-items: stretch;
+    padding: 0 10px;
+  }
+
+  .plan-card {
+    flex: 0 0 min(84vw, 400px);
+    min-width: 0;
+    margin: 0 8px;
+    padding: 30px 24px;
+    opacity: 0.58;
+    filter: saturate(0.76);
+    transform: scale(0.94);
+    transform-origin: center;
+    transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease,
+      filter 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .plan-card:hover,
+  .plan-card--signature:hover {
+    transform: scale(0.94);
+  }
+
+  .plan-card--active,
+  .plan-card--active:hover {
+    opacity: 1;
+    filter: none;
+    transform: scale(1);
+    box-shadow: 0 18px 44px rgba(41, 30, 26, 0.12);
+  }
+
+  .plan-card--signature.plan-card--active,
+  .plan-card--signature.plan-card--active:hover {
+    box-shadow: 0 24px 54px rgba(23, 18, 16, 0.34);
+  }
+
+  .plans-mobile-carousel-status {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 14px;
+    align-items: center;
+    max-width: 400px;
+    margin: 4px auto 0;
+    color: var(--brown-primary);
+  }
+
+  .plans-carousel-count {
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+    color: var(--moss);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+  }
+
+  .plans-carousel-count strong {
+    color: var(--bronze);
+  }
+
+  .plans-carousel-count i {
+    font-style: normal;
+    color: rgba(41, 30, 26, 0.38);
+  }
+
+  .plans-carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+  }
+
+  .plans-carousel-dots button {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(41, 30, 26, 0.2);
+    cursor: pointer;
+    transition: width 0.25s ease, background 0.25s ease;
+  }
+
+  .plans-carousel-dots button.is-active {
+    width: 24px;
+    border-radius: 8px;
+    background: var(--bronze);
+  }
+
+  .plans-carousel-hint {
+    color: var(--moss);
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* Localização acompanha o eixo central das demais seções do mobile. */
+  .location-section {
+    padding: 76px 20px;
+    text-align: center;
+  }
+
+  .location-inner {
+    justify-items: center;
+    gap: 38px;
+  }
+
+  .location-content {
+    width: 100%;
+    max-width: 440px;
+    text-align: center;
+  }
+
+  .location-content address,
+  .location-phone {
+    text-align: center;
+  }
+
+  .location-actions {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .location-map {
+    justify-self: center;
+    width: min(100%, 440px);
+  }
+}
+
+@media (min-width: 721px) {
+  .plans-mobile-carousel-status {
+    display: none;
   }
 }
 

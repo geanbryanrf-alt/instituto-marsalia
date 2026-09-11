@@ -1,11 +1,53 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
 import Link from 'next/link';
 import { formatBRL, pilatesPlans } from '@/data/plans';
 
 export function Plans() {
   const [frequency, setFrequency] = useState<2 | 3>(2);
+  const [isMobileCarousel, setIsMobileCarousel] = useState(false);
+  const [plansEmblaRef, plansEmblaApi] = useEmblaCarousel({
+    align: 'center',
+    loop: true,
+    active: isMobileCarousel,
+  });
+  const [selectedPlanIndex, setSelectedPlanIndex] = useState(0);
+  const [planScrollSnaps, setPlanScrollSnaps] = useState<number[]>([]);
+
+  const onPlanSelect = useCallback(() => {
+    if (!plansEmblaApi) return;
+    setSelectedPlanIndex(plansEmblaApi.selectedScrollSnap());
+  }, [plansEmblaApi]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 720px)');
+    const updateCarouselMode = () => setIsMobileCarousel(mediaQuery.matches);
+
+    updateCarouselMode();
+    mediaQuery.addEventListener('change', updateCarouselMode);
+
+    return () => mediaQuery.removeEventListener('change', updateCarouselMode);
+  }, []);
+
+  useEffect(() => {
+    if (!plansEmblaApi) return;
+
+    const frame = requestAnimationFrame(() => {
+      setPlanScrollSnaps(plansEmblaApi.scrollSnapList());
+      onPlanSelect();
+    });
+
+    plansEmblaApi.on('select', onPlanSelect);
+    plansEmblaApi.on('reInit', onPlanSelect);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      plansEmblaApi.off('select', onPlanSelect);
+      plansEmblaApi.off('reInit', onPlanSelect);
+    };
+  }, [plansEmblaApi, onPlanSelect]);
 
   return (
     <section id='planos' className='plans-section'>
@@ -26,8 +68,8 @@ export function Plans() {
         </p>
 
         {/* Frequency Selector */}
-        <div className='plans-freq-wrap' role='group' aria-label='Frequência de aulas semanais'>
-          <span className='plans-freq-label'>FREQUÊNCIA SEMANAL</span>
+        <fieldset className='plans-freq-wrap'>
+          <legend className='plans-freq-label'>FREQUÊNCIA SEMANAL</legend>
           <div className='plans-freq-pills'>
             <button
               type='button'
@@ -46,12 +88,14 @@ export function Plans() {
               FREQUÊNCIA <strong>3×</strong>
             </button>
           </div>
-        </div>
+        </fieldset>
       </div>
 
       {/* ── PLAN CARDS ── */}
-      <div className='plans-grid' data-stagger>
-        {pilatesPlans.map((plan, index) => {
+      <div className='plans-carousel'>
+        <div className='plans-carousel-viewport' ref={plansEmblaRef}>
+          <div className='plans-grid' data-stagger>
+            {pilatesPlans.map((plan, index) => {
           const price = frequency === 2 ? plan.price2x : plan.price3x;
           const isSignature = plan.slug === 'signature';
           const lvl = `PLANO 0${index + 1}`;
@@ -59,7 +103,7 @@ export function Plans() {
           return (
             <article
               key={plan.slug}
-              className={`plan-card ${isSignature ? 'plan-card--signature' : ''}`}
+              className={`plan-card ${isSignature ? 'plan-card--signature' : ''} ${selectedPlanIndex === index ? 'plan-card--active' : ''}`}
             >
               {/* Header */}
               <div className='plan-card-header'>
@@ -132,7 +176,31 @@ export function Plans() {
               </div>
             </article>
           );
-        })}
+            })}
+          </div>
+        </div>
+
+        <div className='plans-mobile-carousel-status' aria-live='polite'>
+          <span className='plans-carousel-count'>
+            <strong>{String(selectedPlanIndex + 1).padStart(2, '0')}</strong>
+            <i aria-hidden='true'>/</i>
+            {String(pilatesPlans.length).padStart(2, '0')}
+          </span>
+          <div className='plans-carousel-dots' role='tablist' aria-label='Navegação entre planos'>
+            {planScrollSnaps.map((_, index) => (
+              <button
+                key={index}
+                type='button'
+                className={selectedPlanIndex === index ? 'is-active' : ''}
+                onClick={() => plansEmblaApi?.scrollTo(index)}
+                aria-label={`Exibir plano ${index + 1}`}
+                aria-selected={selectedPlanIndex === index}
+                role='tab'
+              />
+            ))}
+          </div>
+          <span className='plans-carousel-hint'>Arraste para comparar</span>
+        </div>
       </div>
 
       {/* ── FOOTNOTE ── */}

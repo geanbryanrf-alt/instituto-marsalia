@@ -95,12 +95,16 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='pilates-copy-col' data-reveal data-delay='0.15'>
-            <p className='pilates-eyebrow'>O MÉTODO PILATES</p>
-            <h2>
-              Pilates<br />
-              <em>no Marsalia.</em>
-            </h2>
+          <div className='pilates-copy-col'>
+            <div className='pilates-copy-intro' data-reveal data-delay='0.15'>
+              <p className='pilates-eyebrow'>O MÉTODO PILATES</p>
+              <h2>
+                Pilates<br />
+                <em>no Marsalia.</em>
+              </h2>
+            </div>
+
+            <div className='pilates-copy-details' data-reveal data-delay='0.2'>
             <p className='pilates-tagline'>Movimento com precisão e presença.</p>
             <p className='pilates-description'>
               No Instituto Marsalia, o Pilates transcende o exercício mecânico. Conduzido por fisioterapeutas
@@ -136,6 +140,7 @@ export default function Home() {
               <Link href='#planos' className='button button-champagne'>
                 Conhecer os planos de Pilates <span>↗</span>
               </Link>
+            </div>
             </div>
           </div>
         </div>
@@ -238,9 +243,6 @@ export default function Home() {
           </p>
 
           <div className='final-cta-buttons'>
-            <Link href='#planos' className='button button-champagne button-large'>
-              Ver planos de Pilates <span>↗</span>
-            </Link>
             <a
               href='https://wa.me/5527999981466?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Instituto%20Marsalia'
               target='_blank'
