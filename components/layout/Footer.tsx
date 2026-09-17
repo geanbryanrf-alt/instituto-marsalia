@@ -11,7 +11,7 @@ export function Footer() {
             <span>INSTITUTO</span>
             <strong>MARSALIA</strong>
           </div>
-          <p>Saúde, movimento e cuidado para uma rotina mais presente.</p>
+          <p>Saúde, movimento e bem-estar para uma rotina mais presente.</p>
         </div>
 
         <nav className='footer-nav' aria-label='Navegação do rodapé'>
@@ -44,7 +44,7 @@ export function Footer() {
 
       <div className='footer-bottom'>
         <p className='footer-note'>© {new Date().getFullYear()} Instituto Marsalia</p>
-        <p className='footer-signature'>Cuidado integrado e humanizado.</p>
+        <p className='footer-signature'>Saúde integrada e acolhedora.</p>
       </div>
     </footer>
   );

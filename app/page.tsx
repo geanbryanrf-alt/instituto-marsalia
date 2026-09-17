@@ -10,17 +10,17 @@ const careSteps = [
   {
     number: '01',
     title: 'Escuta inicial',
-    text: 'Começamos entendendo o seu momento, sua rotina e o que você busca para a sua saúde.',
+    text: 'Começamos compreendendo o seu momento, a sua rotina e os seus objetivos.',
   },
   {
     number: '02',
-    title: 'Cuidado conectado',
-    text: 'Quando necessário, diferentes especialidades atuam de forma complementar em uma mesma jornada.',
+    title: 'Conexão entre áreas',
+    text: 'Quando necessário, diferentes especialidades atuam de forma complementar na mesma jornada.',
   },
   {
     number: '03',
     title: 'Acompanhamento contínuo',
-    text: 'O cuidado evolui com você, respeitando seu ritmo e seus objetivos ao longo do tempo.',
+    text: 'O plano acompanha o seu ritmo e as suas metas ao longo do tempo.',
   },
 ] as const;
 
@@ -40,12 +40,12 @@ export default function Home() {
           {/* — HEADLINE E INTRO CENTRADOS — */}
           <div className='care-editorial-header' data-reveal>
             <h2 className='care-editorial-heading'>
-              <span className='care-heading-line'>Como cuidamos</span>
+              <span className='care-heading-line'>Como atuamos</span>
               <em className='care-heading-accent'>no Marsalia.</em>
             </h2>
             <p className='care-editorial-lead'>
-              Cada etapa do atendimento foi pensada para oferecer acolhimento,
-              integração entre especialidades e continuidade no acompanhamento.
+              Atendimento acolhedor, diálogo entre áreas e acompanhamento consistente,
+              do primeiro encontro aos próximos passos.
             </p>
           </div>
 
@@ -107,8 +107,8 @@ export default function Home() {
             <div className='pilates-copy-details' data-reveal data-delay='0.2'>
             <p className='pilates-tagline'>Movimento com precisão e presença.</p>
             <p className='pilates-description'>
-              No Instituto Marsalia, o Pilates transcende o exercício mecânico. Conduzido por fisioterapeutas
-              e instrutores dedicados, cada sessão respeita sua biomecânica e potencializa sua postura,
+              No Instituto Marsalia, o Pilates vai além do exercício mecânico. Conduzido por fisioterapeutas
+              e profissionais de educação física, cada sessão respeita sua biomecânica e potencializa sua postura,
               alívio de tensões e mobilidade duradoura.
             </p>
 
@@ -116,15 +116,15 @@ export default function Home() {
               <div className='highlight-row'>
                 <span className='highlight-icon'>01</span>
                 <div>
-                  <strong>Avaliação inicial postural individualizada</strong>
-                  <p>Mapeamento de padrões biomecânicos e metas personalizadas.</p>
+                  <strong>Avaliação postural inicial</strong>
+                  <p>Mapeamento de padrões biomecânicos e definição de metas.</p>
                 </div>
               </div>
               <div className='highlight-row'>
                 <span className='highlight-icon'>02</span>
                 <div>
-                  <strong>Turmas com atenção personalizada</strong>
-                  <p>Grupos estritamente reduzidos para correção e acompanhamento contínuo.</p>
+                  <strong>Turmas reduzidas e orientação próxima</strong>
+                  <p>Grupos pequenos para correção e acompanhamento contínuo.</p>
                 </div>
               </div>
               <div className='highlight-row'>
@@ -220,7 +220,7 @@ export default function Home() {
               </div>
               <figcaption>
                 <span>DETALHES & TEXTURAS</span>
-                <strong>Atenção a Cada Cuidado</strong>
+                <strong>Detalhes que acolhem</strong>
               </figcaption>
             </figure>
           </div>
@@ -233,13 +233,13 @@ export default function Home() {
         <div className='final-cta-content' data-reveal>
           <p className='final-cta-eyebrow'>AGENDAMENTO</p>
           <h2>
-            <span className='final-cta-heading-line'>O seu cuidado integral</span>
+            <span className='final-cta-heading-line'>A sua jornada de saúde</span>
             <em>começa agora.</em>
           </h2>
 
           <p className='final-cta-text'>
             Agende uma conversa com nossa equipe, conheça os planos de Pilates
-            e experimente a sensação de uma saúde cuidada por inteiro.
+            e conheça uma forma mais criteriosa de olhar para a sua saúde.
           </p>
 
           <div className='final-cta-buttons'>

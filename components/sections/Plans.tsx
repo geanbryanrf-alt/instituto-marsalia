@@ -58,13 +58,13 @@ export function Plans() {
         <span className='plans-intro-label'>05 — PLANOS DE PILATES</span>
 
         <h2 className='plans-intro-heading'>
-          <span className='plans-heading-line1'>Um cuidado que</span>
+          <span className='plans-heading-line1'>Um plano que</span>
           <em className='plans-heading-italic'>se adapta à sua rotina.</em>
         </h2>
 
         <p className='plans-intro-body'>
           Escolha a frequência que melhor acompanha a sua rotina.
-          Os planos foram pensados para valorizar a constância do cuidado.
+          Os planos foram pensados para valorizar a constância da prática.
         </p>
 
         {/* Frequency Selector */}
@@ -110,7 +110,7 @@ export function Plans() {
                 <div className='plan-card-meta'>
                   <span className='plan-card-index'>{lvl}</span>
                   {isSignature && (
-                    <span className='plan-card-badge'>EXPERIÊNCIA INTEGRAL</span>
+                    <span className='plan-card-badge'>PLANO INTEGRAL</span>
                   )}
                 </div>
                 <h3 className='plan-card-name'>{plan.name}</h3>
@@ -120,7 +120,7 @@ export function Plans() {
 
               {/* Investment */}
               <div className='plan-card-investment'>
-                <span className='plan-invest-label'>VALOR ({frequency}x de)</span>
+                <span className='plan-invest-label'>{frequency}x por semana</span>
                 <div className='plan-invest-row'>
                   <strong
                     className='plan-invest-price'
@@ -132,7 +132,7 @@ export function Plans() {
                 </div>
                 <p className='plan-invest-note'>
                   {frequency === 2
-                    ? 'Cuidado de qualidade, com condições especiais no plano semestral'
+                    ? 'Condições especiais no plano semestral.'
                     : 'Condições especiais no plano semestral e anual.'}
                 </p>
               </div>

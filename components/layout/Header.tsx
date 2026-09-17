@@ -73,7 +73,7 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <p>Saúde, movimento e cuidado em um só lugar.</p>
+        <p>Saúde, movimento e bem-estar em um só lugar.</p>
       </div>
     </>
   );

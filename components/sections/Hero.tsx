@@ -119,19 +119,19 @@ export function Hero() {
         {/* Monumental Editorial Headline */}
         <h1 className='hero-main-title'>
           <span className='hero-line-mask'>
-            <span ref={line1Ref} className='hero-line hero-line-1'>Um lugar para</span>
+            <span ref={line1Ref} className='hero-line hero-line-1'>O essencial, elevado</span>
           </span>
           <span className='hero-line-mask'>
             <span ref={line2Ref} className='hero-line hero-line-2'>
-              <em>cuidar de você</em> <span className='hero-line-suffix'>por inteiro.</span>
+              <em>ao seu mais alto</em> <span className='hero-line-suffix'>nível.</span>
             </span>
           </span>
         </h1>
 
         {/* Supporting Paragraph */}
         <p ref={leadRef} className='hero-lead-text'>
-          Saúde, movimento e bem-estar reunidos em uma experiência próxima,
-          atenta e integrada ao seu ritmo de vida.
+          Saúde, movimento e bem-estar reunidos em uma experiência de cuidado
+          criteriosa, personalizada e integrada.
         </p>
 
         {/* Side-by-side Centered CTAs */}

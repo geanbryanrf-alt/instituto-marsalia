@@ -13,9 +13,9 @@ export type PilatesPlan = {
 export const pilatesPlans: PilatesPlan[] = [
   {
     slug: 'essencial', name: 'Essencial', tagline: 'Liberdade para começar.',
-    description: 'Para conhecer a experiência Marsalia sem compromisso de longo prazo.',
+    description: 'Para começar no Marsalia sem compromisso de longo prazo.',
     duration: '1 mês', enrollment: 'R$ 100', price2x: 320, price3x: 420,
-    benefits: ['Anamnese inicial individualizada', 'Aulas em grupos reduzidos', 'Exercícios direcionados', 'Acompanhamento profissional'],
+    benefits: ['Anamnese inicial', 'Aulas em grupos reduzidos', 'Exercícios direcionados', 'Acompanhamento profissional'],
   },
   {
     slug: 'premium', name: 'Premium', tagline: 'Constância para evoluir.',
@@ -24,8 +24,8 @@ export const pilatesPlans: PilatesPlan[] = [
     benefits: ['Avaliação física e postural completa', 'Reavaliação de evolução em 3 meses', 'Registro e acompanhamento dos resultados', '10% de desconto em serviços selecionados', 'Triagem de indicadores de saúde'],
   },
   {
-    slug: 'signature', name: 'Marsalia Signature', tagline: 'A experiência mais completa.',
-    description: 'Para quem escolhe um cuidado de longo prazo, integrado e contínuo.',
+    slug: 'signature', name: 'Marsalia Signature', tagline: 'A proposta mais completa.',
+    description: 'Para quem prefere um plano de longo prazo, com continuidade e diálogo entre áreas.',
     duration: '12 meses', enrollment: 'Isenta', price2x: 260, price3x: 340,
     benefits: ['Matrícula cortesia', 'Avaliação física e postural completa', 'Reavaliações periódicas a cada 3 meses', 'Comparativo de evolução', '15% de desconto em serviços selecionados', 'Consulta nutricional de avaliação'],
   },

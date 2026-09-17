@@ -58,12 +58,11 @@ export function SpecialtyExplorer() {
           <span className='spec-label'>04 — ESPECIALIDADES</span>
           <h2 className='spec-heading'>
             <span className='spec-heading-normal'>Escolha por onde</span>
-            <em className='spec-heading-italic'>começar o seu cuidado.</em>
+            <em className='spec-heading-italic'>começar sua jornada.</em>
           </h2>
           <p className='spec-subheading'>
-            No Instituto Marsalia, cada área de atendimento dialoga com as demais.
-            O cuidado é integrado e se adapta à sua história, ao seu ritmo e ao
-            que o seu corpo e sua mente necessitam.
+            No Instituto Marsalia, cada área de atendimento dialoga com as demais
+            e se adapta à sua história, ao seu ritmo e às necessidades do corpo e da mente.
           </p>
         </div>
 

@@ -3158,3 +3158,29 @@ main > section.is-in-view {
     font-size: clamp(1.65rem, 6.5vw, 2.1rem);
   }
 }
+
+/* Seção de fundadores sem retrato, enquanto a equipe completa não é apresentada. */
+.founder-story-inner {
+  display: block;
+  max-width: 860px;
+}
+
+.founder-copy {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.founder-intro {
+  max-width: 660px;
+}
+
+@media (max-width: 760px) {
+  .founder-story-inner,
+  .founder-copy {
+    display: block;
+  }
+
+  .founder-intro {
+    max-width: none;
+  }
+}
