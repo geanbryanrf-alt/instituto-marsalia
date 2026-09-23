@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+
 import { SiteShell } from '@/components/layout/SiteShell';
 import { Hero } from '@/components/sections/Hero';
 import { FounderStory } from '@/components/sections/FounderStory';
@@ -137,9 +137,9 @@ export default function Home() {
             </div>
 
             <div className='pilates-actions'>
-              <Link href='#planos' className='button button-champagne'>
+              <a href='#planos' className='button button-champagne'>
                 Conhecer os planos de Pilates <span>↗</span>
-              </Link>
+              </a>
             </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -136,12 +136,12 @@ export function Hero() {
 
         {/* Side-by-side Centered CTAs */}
         <div ref={ctaRef} className='hero-actions-cluster'>
-          <Link href='#especialidades' className='hero-cta-primary'>
+          <a href='#especialidades' className='hero-cta-primary'>
             CONHEÇA AS ESPECIALIDADES <span>↗</span>
-          </Link>
-          <Link href='#planos' className='hero-cta-secondary'>
+          </a>
+          <a href='#planos' className='hero-cta-secondary'>
             Ver planos de Pilates <span>↗</span>
-          </Link>
+          </a>
         </div>
       </div>
     </section>

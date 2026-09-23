@@ -51,12 +51,11 @@ export function Header() {
     <>
       <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
         <Link href='/' className='wordmark' aria-label='Instituto Marsalia — início'>
-          <span>INSTITUTO</span><strong>MARSALIA</strong>
-        </Link>
+          <span>INSTITUTO</span><strong>MARSALIA</strong></Link>
         <nav className='desktop-nav' aria-label='Navegação principal'>
-          {navigation.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
+          {navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
         </nav>
-        <Link href='#planos' className='header-cta'>CONHEÇA OS PLANOS <span>↗</span></Link>
+        <a href='#planos' className='header-cta'>CONHEÇA OS PLANOS <span>↗</span></a>
         <button ref={triggerRef} className='menu-trigger' type='button' aria-label={open ? 'Fechar menu' : 'Abrir menu'} aria-expanded={open} aria-controls='mobile-menu' onClick={() => setOpen((value) => !value)}>
           <span /><span />
         </button>
@@ -68,9 +67,9 @@ export function Header() {
         </div>
         <nav>
           {navigation.map((item, index) => (
-            <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
+            <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
               <small>{String(index + 1).padStart(2, '0')}</small><span>{item.label}</span><b>↗</b>
-            </Link>
+            </a>
           ))}
         </nav>
         <p>Saúde, movimento e bem-estar em um só lugar.</p>

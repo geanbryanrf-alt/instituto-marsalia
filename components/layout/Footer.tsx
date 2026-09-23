@@ -1,4 +1,4 @@
-import Link from 'next/link';
+
 import { navigation } from '@/data/navigation';
 import { contact } from '@/data/contact';
 
@@ -17,7 +17,7 @@ export function Footer() {
         <nav className='footer-nav' aria-label='Navegação do rodapé'>
           <span className='footer-label'>NAVEGAÇÃO</span>
           {navigation.map((item) => (
-            <Link key={item.href} href={item.href}>{item.label}</Link>
+            <a key={item.href} href={item.href}>{item.label}</a>
           ))}
         </nav>
 

@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import Link from 'next/link';
+
 import { formatBRL, pilatesPlans } from '@/data/plans';
 
 export function Plans() {
@@ -164,7 +164,7 @@ export function Plans() {
 
               {/* CTA */}
               <div className='plan-card-action'>
-                <Link
+                <a
                   href='#contato'
                   className={`plan-cta ${isSignature ? 'plan-cta--signature' : 'plan-cta--default'}`}
                 >
@@ -172,7 +172,7 @@ export function Plans() {
                     ? `Conheça o Plano Signature`
                     : `Conheça o Plano ${plan.name}`}
                   <span aria-hidden='true'> ↗</span>
-                </Link>
+                </a>
               </div>
             </article>
           );

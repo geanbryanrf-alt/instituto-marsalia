@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+
 import { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { specialties } from '@/data/specialties';
@@ -128,13 +128,13 @@ export function SpecialtyExplorer() {
 
                     <div className='spec-card-cta-row'>
                       {isActive ? (
-                        <Link
+                        <a
                           href='#contato'
                           className='spec-card-cta-primary'
                           onClick={(e) => e.stopPropagation()}
                         >
                           Agendar atendimento <span aria-hidden='true'>↗</span>
-                        </Link>
+                        </a>
                       ) : (
                         <button
                           type='button'
