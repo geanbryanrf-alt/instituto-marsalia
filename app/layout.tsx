@@ -36,5 +36,12 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang='pt-BR'><body><MotionProvider />{children}</body></html>;
+  return (
+    <html lang='pt-BR' suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <MotionProvider />
+        {children}
+      </body>
+    </html>
+  );
 }

@@ -43,7 +43,7 @@ export function Footer() {
       </div>
 
       <div className='footer-bottom'>
-        <p className='footer-note'>© {new Date().getFullYear()} Instituto Marsalia</p>
+        <p className='footer-note'>© 2026 Instituto Marsalia</p>
         <p className='footer-signature'>Saúde integrada e acolhedora.</p>
       </div>
     </footer>

@@ -203,13 +203,13 @@ export function SpecialtyExplorer() {
               {String(specialties.length).padStart(2, '0')}
             </span>
             <div className='spec-dots' role='tablist' aria-label='Navegar para especialidade'>
-              {scrollSnaps.map((_, index) => (
+              {specialties.map((spec, index) => (
                 <button
-                  key={index}
+                  key={spec.slug}
                   type='button'
                   role='tab'
                   aria-selected={index === selectedIndex}
-                  aria-label={`Ir para ${specialties[index]?.name ?? `especialidade ${index + 1}`}`}
+                  aria-label={`Ir para ${spec.name}`}
                   className={`spec-dot ${index === selectedIndex ? 'spec-dot--active' : ''}`}
                   onClick={() => scrollTo(index)}
                 />

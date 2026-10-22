@@ -177,9 +177,9 @@ export function Plans() {
             {String(pilatesPlans.length).padStart(2, '0')}
           </span>
           <div className='plans-carousel-dots' role='tablist' aria-label='Navegação entre planos'>
-            {planScrollSnaps.map((_, index) => (
+            {pilatesPlans.map((plan, index) => (
               <button
-                key={index}
+                key={plan.slug}
                 type='button'
                 className={selectedPlanIndex === index ? 'is-active' : ''}
                 onClick={() => plansEmblaApi?.scrollTo(index)}
