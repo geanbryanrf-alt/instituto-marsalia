@@ -4,6 +4,7 @@ export type PilatesPlan = {
   tagline: string;
   description: string;
   duration: string;
+  fidelity: string;
   enrollment: string;
   price2x: number;
   price3x: number;
@@ -17,6 +18,7 @@ export const pilatesPlans: PilatesPlan[] = [
     tagline: 'Liberdade para começar.',
     description: 'Para começar no Marsalia sem compromisso de longo prazo.',
     duration: '1 mês',
+    fidelity: 'Sem fidelidade',
     enrollment: 'R$ 100',
     price2x: 300,
     price3x: 380,
@@ -33,6 +35,7 @@ export const pilatesPlans: PilatesPlan[] = [
     tagline: 'Constância para evoluir.',
     description: 'Para quem busca continuidade, monitoramento e vantagens adicionais.',
     duration: '6 meses',
+    fidelity: '6 meses de fidelidade',
     enrollment: 'R$ 100',
     price2x: 280,
     price3x: 340,
@@ -50,6 +53,7 @@ export const pilatesPlans: PilatesPlan[] = [
     tagline: 'A proposta mais completa.',
     description: 'Para quem prefere um plano de longo prazo, com continuidade e diálogo entre áreas.',
     duration: '12 meses',
+    fidelity: '12 meses de fidelidade',
     enrollment: 'Isenta',
     price2x: 250,
     price3x: 300,

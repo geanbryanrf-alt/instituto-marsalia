@@ -127,6 +127,7 @@ export function Plans() {
                       </strong>
                       <span className='plan-invest-period'>/mês</span>
                     </div>
+                    <span className='plan-fidelity-pill'>{plan.fidelity}</span>
                   </div>
 
                   {/* Specs strip */}
@@ -136,7 +137,13 @@ export function Plans() {
                       <strong className='plan-spec-value'>{frequency}x por semana</strong>
                     </div>
                     <div className='plan-spec-item'>
-                      <span className='plan-spec-label'>TAXA DE MATRÍCULA</span>
+                      <span className='plan-spec-label'>FIDELIDADE</span>
+                      <strong className='plan-spec-value'>
+                        {plan.slug === 'essencial' ? 'Sem fidelidade' : plan.duration}
+                      </strong>
+                    </div>
+                    <div className='plan-spec-item'>
+                      <span className='plan-spec-label'>MATRÍCULA</span>
                       <strong className='plan-spec-value'>{plan.enrollment}</strong>
                     </div>
                   </div>
