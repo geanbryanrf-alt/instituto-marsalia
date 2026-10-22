@@ -96,86 +96,76 @@ export function Plans() {
         <div className='plans-carousel-viewport' ref={plansEmblaRef}>
           <div className='plans-grid' data-stagger>
             {pilatesPlans.map((plan, index) => {
-          const price = frequency === 2 ? plan.price2x : plan.price3x;
-          const isSignature = plan.slug === 'signature';
-          const lvl = `PLANO 0${index + 1}`;
+              const price = frequency === 2 ? plan.price2x : plan.price3x;
+              const isExclusive = plan.slug === 'exclusive' || plan.slug === 'signature';
+              const lvl = `PLANO 0${index + 1}`;
 
-          return (
-            <article
-              key={plan.slug}
-              className={`plan-card ${isSignature ? 'plan-card--signature' : ''} ${selectedPlanIndex === index ? 'plan-card--active' : ''}`}
-            >
-              {/* Header */}
-              <div className='plan-card-header'>
-                <div className='plan-card-meta'>
-                  <span className='plan-card-index'>{lvl}</span>
-                  {isSignature && (
-                    <span className='plan-card-badge'>PLANO INTEGRAL</span>
-                  )}
-                </div>
-                <h3 className='plan-card-name'>{plan.name}</h3>
-                <p className='plan-card-tagline'>{plan.tagline}</p>
-                <p className='plan-card-desc'>{plan.description}</p>
-              </div>
-
-              {/* Investment */}
-              <div className='plan-card-investment'>
-                <span className='plan-invest-label'>{frequency}x por semana</span>
-                <div className='plan-invest-row'>
-                  <strong
-                    className='plan-invest-price'
-                    key={`${plan.slug}-${frequency}`}
-                  >
-                    {formatBRL(price)}
-                  </strong>
-                  <span className='plan-invest-period'>/mês</span>
-                </div>
-                <p className='plan-invest-note'>
-                  {frequency === 2
-                    ? 'Condições especiais no plano semestral.'
-                    : 'Condições especiais no plano semestral e anual.'}
-                </p>
-              </div>
-
-              {/* Specs strip */}
-              <div className='plan-card-specs'>
-                <div className='plan-spec-item'>
-                  <span className='plan-spec-label'>FREQUÊNCIA</span>
-                  <strong className='plan-spec-value'>{frequency}x por semana</strong>
-                </div>
-                <div className='plan-spec-item'>
-                  <span className='plan-spec-label'>TAXA DE MATRÍCULA</span>
-                  <strong className='plan-spec-value'>{plan.enrollment}</strong>
-                </div>
-              </div>
-
-              {/* Features */}
-              <div className='plan-card-features'>
-                <span className='plan-features-title'>O QUE ESTÁ INCLUÍDO</span>
-                <ul>
-                  {plan.benefits.map((benefit) => (
-                    <li key={benefit}>
-                      <span className='plan-feature-check' aria-hidden='true'>✓</span>
-                      <span>{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* CTA */}
-              <div className='plan-card-action'>
-                <a
-                  href='#contato'
-                  className={`plan-cta ${isSignature ? 'plan-cta--signature' : 'plan-cta--default'}`}
+              return (
+                <article
+                  key={plan.slug}
+                  className={`plan-card ${isExclusive ? 'plan-card--exclusive plan-card--signature' : ''} ${selectedPlanIndex === index ? 'plan-card--active' : ''}`}
                 >
-                  {isSignature
-                    ? `Conheça o Plano Signature`
-                    : `Conheça o Plano ${plan.name}`}
-                  <span aria-hidden='true'> ↗</span>
-                </a>
-              </div>
-            </article>
-          );
+                  {/* Header */}
+                  <div className='plan-card-header'>
+                    <div className='plan-card-meta'>
+                      <span className='plan-card-index'>{lvl}</span>
+                    </div>
+                    <h3 className='plan-card-name'>{plan.name}</h3>
+                    <p className='plan-card-tagline'>{plan.tagline}</p>
+                    <p className='plan-card-desc'>{plan.description}</p>
+                  </div>
+
+                  {/* Investment */}
+                  <div className='plan-card-investment'>
+                    <span className='plan-invest-label'>{frequency}x por semana</span>
+                    <div className='plan-invest-row'>
+                      <strong
+                        className='plan-invest-price'
+                        key={`${plan.slug}-${frequency}`}
+                      >
+                        {formatBRL(price)}
+                      </strong>
+                      <span className='plan-invest-period'>/mês</span>
+                    </div>
+                  </div>
+
+                  {/* Specs strip */}
+                  <div className='plan-card-specs'>
+                    <div className='plan-spec-item'>
+                      <span className='plan-spec-label'>FREQUÊNCIA</span>
+                      <strong className='plan-spec-value'>{frequency}x por semana</strong>
+                    </div>
+                    <div className='plan-spec-item'>
+                      <span className='plan-spec-label'>TAXA DE MATRÍCULA</span>
+                      <strong className='plan-spec-value'>{plan.enrollment}</strong>
+                    </div>
+                  </div>
+
+                  {/* Features */}
+                  <div className='plan-card-features'>
+                    <span className='plan-features-title'>O QUE ESTÁ INCLUÍDO</span>
+                    <ul>
+                      {plan.benefits.map((benefit) => (
+                        <li key={benefit}>
+                          <span className='plan-feature-check' aria-hidden='true'>✓</span>
+                          <span>{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* CTA */}
+                  <div className='plan-card-action'>
+                    <a
+                      href='#contato'
+                      className={`plan-cta ${isExclusive ? 'plan-cta--exclusive plan-cta--signature' : 'plan-cta--default'}`}
+                    >
+                      {`Conheça o Plano ${plan.name}`}
+                      <span aria-hidden='true'> ↗</span>
+                    </a>
+                  </div>
+                </article>
+              );
             })}
           </div>
         </div>

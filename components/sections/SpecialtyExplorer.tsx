@@ -71,6 +71,29 @@ export function SpecialtyExplorer() {
 
       {/* ── CAROUSEL ── */}
       <div className='spec-carousel-root'>
+        {/* Floating Side Navigation Arrows */}
+        <button
+          type='button'
+          className='spec-nav-btn spec-nav-btn--prev'
+          onClick={scrollPrev}
+          aria-label='Especialidade anterior'
+        >
+          <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2.2' strokeLinecap='round' strokeLinejoin='round' aria-hidden='true'>
+            <path d='m15 18-6-6 6-6' />
+          </svg>
+        </button>
+
+        <button
+          type='button'
+          className='spec-nav-btn spec-nav-btn--next'
+          onClick={scrollNext}
+          aria-label='Próxima especialidade'
+        >
+          <svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2.2' strokeLinecap='round' strokeLinejoin='round' aria-hidden='true'>
+            <path d='m9 18 6-6-6-6' />
+          </svg>
+        </button>
+
         <section
           className='spec-carousel-viewport'
           ref={emblaRef}
@@ -89,6 +112,9 @@ export function SpecialtyExplorer() {
                   className={`spec-card spec-card--${position}`}
                   aria-label={`Especialidade: ${spec.name}`}
                   aria-current={isActive ? 'true' : undefined}
+                  onClick={() => {
+                    if (!isActive) scrollTo(index);
+                  }}
                 >
                   {/* Image */}
                   <div className='spec-card-image-wrap'>
@@ -100,6 +126,7 @@ export function SpecialtyExplorer() {
                       className='spec-card-image'
                       quality={85}
                       loading='lazy'
+                      draggable={false}
                     />
                     {/* Badge */}
                     <div className='spec-card-badge'>
@@ -156,42 +183,52 @@ export function SpecialtyExplorer() {
           </div>
         </section>
 
-      {/* ── CONTROLS ── */}
-      <fieldset className='spec-controls' aria-label='Controles do carrossel de especialidades'>
-        <button
-          type='button'
-          className='spec-ctrl-btn spec-ctrl-btn--prev'
-          onClick={scrollPrev}
-          aria-label='Especialidade anterior'
-        >
-          ←
-        </button>
+        {/* ── CONTROLS & HINT ── */}
+        <div className='spec-controls' aria-label='Controles do carrossel de especialidades'>
+          <button
+            type='button'
+            className='spec-ctrl-btn spec-ctrl-btn--prev'
+            onClick={scrollPrev}
+            aria-label='Especialidade anterior'
+          >
+            <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2.2' strokeLinecap='round' strokeLinejoin='round' aria-hidden='true'>
+              <path d='m15 18-6-6 6-6' />
+            </svg>
+          </button>
 
-        <div className='spec-progress' aria-live='polite'>
-          <span className='spec-progress-count'>
-            <strong>{String(selectedIndex + 1).padStart(2, '0')}</strong>
-            <span aria-hidden='true'> / </span>
-            {String(specialties.length).padStart(2, '0')}
-          </span>
-          <div className='spec-dots' role='tablist' aria-label='Navegar para especialidade'>
-            {scrollSnaps.map((_, index) => (
-              <button key={index} type='button' role='tab' aria-selected={index === selectedIndex}
-                aria-label={`Ir para ${specialties[index]?.name ?? `especialidade ${index + 1}`}`}
-                className={`spec-dot ${index === selectedIndex ? 'spec-dot--active' : ''}`} onClick={() => scrollTo(index)} />
-            ))}
+          <div className='spec-progress' aria-live='polite'>
+            <span className='spec-progress-count'>
+              <strong>{String(selectedIndex + 1).padStart(2, '0')}</strong>
+              <span aria-hidden='true'> / </span>
+              {String(specialties.length).padStart(2, '0')}
+            </span>
+            <div className='spec-dots' role='tablist' aria-label='Navegar para especialidade'>
+              {scrollSnaps.map((_, index) => (
+                <button
+                  key={index}
+                  type='button'
+                  role='tab'
+                  aria-selected={index === selectedIndex}
+                  aria-label={`Ir para ${specialties[index]?.name ?? `especialidade ${index + 1}`}`}
+                  className={`spec-dot ${index === selectedIndex ? 'spec-dot--active' : ''}`}
+                  onClick={() => scrollTo(index)}
+                />
+              ))}
+            </div>
+            <span className='spec-drag-hint'>Clique nas setas ou arraste para os lados</span>
           </div>
-          <span className='spec-drag-hint'>Arraste para explorar</span>
-        </div>
 
-        <button
-          type='button'
-          className='spec-ctrl-btn spec-ctrl-btn--next'
-          onClick={scrollNext}
-          aria-label='Próxima especialidade'
-        >
-          →
-        </button>
-      </fieldset>
+          <button
+            type='button'
+            className='spec-ctrl-btn spec-ctrl-btn--next'
+            onClick={scrollNext}
+            aria-label='Próxima especialidade'
+          >
+            <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2.2' strokeLinecap='round' strokeLinejoin='round' aria-hidden='true'>
+              <path d='m9 18 6-6-6-6' />
+            </svg>
+          </button>
+        </div>
       </div>
 
 

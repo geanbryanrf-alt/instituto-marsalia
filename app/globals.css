@@ -977,8 +977,8 @@ main > section.is-in-view {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: clamp(270px, 21vw, 310px);
+  justify-content: flex-start;
+  min-height: clamp(230px, 18vw, 270px);
   padding: clamp(34px, 2.7vw, 42px);
   background: rgba(255, 255, 255, 0.45);
   border: 1px solid rgba(94, 80, 66, 0.16);
@@ -1348,6 +1348,8 @@ main > section.is-in-view {
   border-radius: 3px;
   overflow: hidden;
   cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
   transition:
     border-color 0.3s ease,
     box-shadow 0.3s ease,
@@ -1356,6 +1358,10 @@ main > section.is-in-view {
     opacity 0.5s ease;
   transform-style: preserve-3d;
   will-change: transform, opacity;
+}
+
+.spec-card:not(.spec-card--active) {
+  cursor: pointer;
 }
 
 .spec-card--prev,
@@ -1417,6 +1423,9 @@ main > section.is-in-view {
 .spec-card-image {
   object-fit: cover;
   object-position: center;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1570,31 +1579,108 @@ main > section.is-in-view {
   color: var(--brown-primary);
 }
 
-/* ── CONTROLS ── */
+/* ── FLOATING NAVIGATION ARROWS (CAROUSEL SIDES) ── */
+.spec-nav-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(220, 193, 163, 0.45);
+  background: rgba(23, 18, 16, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--champagne);
+  cursor: pointer;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spec-nav-btn:hover {
+  background: var(--champagne);
+  border-color: var(--champagne);
+  color: var(--brown-obsidian);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.spec-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.spec-nav-btn--prev {
+  left: clamp(14px, 3.5vw, 48px);
+}
+
+.spec-nav-btn--next {
+  right: clamp(14px, 3.5vw, 48px);
+}
+
+/* ── CONTROLS & HINT ── */
 .spec-controls {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: clamp(18px, 2vw, 28px);
-  padding: 0 clamp(28px, 5vw, 80px);
+  gap: 16px;
+  margin-top: clamp(20px, 2.5vw, 32px);
+  padding: 0 clamp(20px, 4vw, 60px);
   border: 0;
   min-width: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.spec-ctrl-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(94, 80, 66, 0.24);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--brown-primary);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.24s ease;
+}
+
+.spec-ctrl-btn:hover:not(.spec-ctrl-btn--disabled) {
+  background: var(--brown-primary);
+  border-color: var(--brown-primary);
+  color: var(--champagne);
+  transform: scale(1.08);
+}
+
+.spec-ctrl-btn:active {
+  transform: scale(0.94);
+}
+
+.spec-ctrl-btn--disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 
 .spec-progress {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px 12px;
-  width: min(100%, 360px);
+  gap: 8px;
+  width: min(100%, 340px);
 }
 
-.spec-progress-count,
-.spec-drag-hint {
+.spec-progress-count {
   color: #8B7460;
   font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -1604,46 +1690,11 @@ main > section.is-in-view {
 }
 
 .spec-drag-hint {
-  grid-column: 1 / -1;
+  color: #8B7460;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-align: center;
-}
-.spec-ctrl-btn {
-  position: absolute;
-  z-index: 8;
-  top: 43%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 1px solid rgba(94, 80, 66, 0.28);
-  background: rgba(23, 18, 16, 0.72);
-  backdrop-filter: blur(10px);
-  color: var(--champagne-light);
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    color 0.25s ease,
-    opacity 0.25s ease;
-  flex-shrink: 0;
-}
-
-.spec-ctrl-btn:hover:not(.spec-ctrl-btn--disabled) {
-  background: var(--champagne);
-  border-color: var(--champagne);
-  color: var(--brown-primary);
-}
-
-.spec-ctrl-btn--prev { left: clamp(14px, 5vw, 76px); }
-.spec-ctrl-btn--next { right: clamp(14px, 5vw, 76px); }
-
-.spec-ctrl-btn--disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
 }
 
 /* Dots */
@@ -1671,6 +1722,16 @@ main > section.is-in-view {
 .spec-dot--active {
   background: var(--brown-primary);
   transform: scaleY(1.5);
+}
+
+@media (max-width: 768px) {
+  .spec-nav-btn {
+    width: 44px;
+    height: 44px;
+    top: 36%;
+  }
+  .spec-nav-btn--prev { left: 8px; }
+  .spec-nav-btn--next { right: 8px; }
 }
 
 
@@ -1893,13 +1954,15 @@ main > section.is-in-view {
   box-shadow: 0 16px 44px rgba(41, 30, 26, 0.07);
 }
 
-/* Signature */
+/* Exclusive / Signature */
+.plan-card--exclusive,
 .plan-card--signature {
   background: var(--brown-obsidian);
   border-color: rgba(220, 193, 163, 0.22);
   box-shadow: 0 20px 56px rgba(23, 18, 16, 0.28);
 }
 
+.plan-card--exclusive:hover,
 .plan-card--signature:hover {
   transform: translateY(-3px);
   box-shadow: 0 28px 64px rgba(23, 18, 16, 0.38);
@@ -2160,12 +2223,14 @@ main > section.is-in-view {
   color: var(--champagne);
 }
 
+.plan-cta--exclusive,
 .plan-cta--signature {
   border: 1px solid rgba(220, 193, 163, 0.45);
   background: rgba(220, 193, 163, 0.18);
   color: var(--champagne);
 }
 
+.plan-cta--exclusive:hover,
 .plan-cta--signature:hover {
   background: var(--champagne);
   border-color: var(--champagne);

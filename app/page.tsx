@@ -61,9 +61,6 @@ export default function Home() {
                   <h3 className='care-card-title'>{step.title}</h3>
                   <p className='care-card-desc'>{step.text}</p>
                 </div>
-                <div className='care-card-footer'>
-                  <span className='care-card-arrow' aria-hidden='true'>→</span>
-                </div>
               </article>
             ))}
           </div>
@@ -238,8 +235,7 @@ export default function Home() {
           </h2>
 
           <p className='final-cta-text'>
-            Agende uma conversa com nossa equipe, conheça os planos de Pilates
-            e conheça uma forma mais criteriosa de olhar para a sua saúde.
+            Agende seu atendimento, descubra os planos de Pilates e experimente uma forma mais criteriosa e personalizada de cuidar da sua saúde.
           </p>
 
           <div className='final-cta-buttons'>
